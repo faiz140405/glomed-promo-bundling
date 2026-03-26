@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promo Bundling Glomed & Co - 150RB Dapet 5 Item!</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat for bold, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        glomed: {
+                            yellow: '#FFD700',
+                            black: '#111111',
+                            green: '#25D366' // WhatsApp green
+                        }
+                    },
+                    keyframes: {
+                        heroFade: {
+                            '0%, 45%': { opacity: '0' },
+                            '50%, 95%': { opacity: '0.4' },
+                            '100%': { opacity: '0' }
+                        }
+                    },
+                    animation: {
+                        'hero-fade': 'heroFade 6s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for hard selling elements */
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
+        }
+        .brutal-shadow-white {
+            box-shadow: 6px 6px 0px 0px rgba(255,255,255,1);
+        }
+        .btn-press:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+        }
+        .btn-press-white:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px rgba(255,255,255,1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- 0. TOP CTA (STICKY) -->
+    <div class="sticky top-0 z-50 bg-glomed-yellow border-b-4 border-black shadow-lg">
+        <a href="#order-section" class="block text-center py-3 px-4 font-black text-black text-sm md:text-lg lg:text-xl hover:bg-yellow-400 transition duration-300">
+            <span class="animate-pulse inline-block mr-2">🔥</span> 
+            BELI SEKARANG - 150RB FREE ONGKIR 
+            <span class="animate-pulse inline-block ml-2">🔥</span>
+        </a>
+    </div>
+
+    <!-- 1. HERO SECTION -->
+    <header class="bg-glomed-black text-white relative pt-16 pb-20 px-4 overflow-hidden">
+        <!-- Background Images (Crossfade Animation) -->
+        <div class="absolute inset-0 z-0 overflow-hidden bg-black">
+            <!-- Image 1 (Base) -->
+            <div class="absolute inset-0 bg-[url('images/1.png')] bg-cover bg-center opacity-40"></div>
+            <!-- Image 2 (Animated Fade Over Image 1) -->
+            <div class="absolute inset-0 bg-[url('images/2.png')] bg-cover bg-center animate-hero-fade"></div>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <div data-aos="fade-down" class="inline-block bg-red-600 text-white font-black px-4 py-1.5 rounded-full text-sm md:text-base mb-6 border-2 border-white animate-bounce shadow-lg">
+                ⚠️ PROMO GILA CUMAN ADA DI GLOMED AJA!! ⚠️
+            </div>
+            
+            <h1 data-aos="zoom-in" data-aos-delay="200" class="text-5xl md:text-7xl font-black text-glomed-yellow uppercase leading-tight mb-4 tracking-tighter drop-shadow-lg">
+                150RB DAPET <br/> <span class="text-white">5 ITEM?</span> SERIUS!
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-delay="400" class="text-lg md:text-2xl mb-8 font-semibold text-gray-300 max-w-2xl mx-auto">
+                Style lengkap dari ujung kepala sampai kaki cuma sekali bayar. Siap tampil paling beda!
+            </p>
+            
+            <div data-aos="flip-up" data-aos-delay="600" class="bg-glomed-yellow text-black inline-block px-6 py-3 rounded-xl font-black text-xl md:text-3xl mb-10 transform -rotate-2 brutal-shadow-white border-4 border-black">
+                FREE ONGKIR SELURUH INDONESIA 🚚
+            </div>
+            
+            <div data-aos="zoom-in" data-aos-delay="800">
+                <a href="#order-section" class="block w-full max-w-sm mx-auto bg-red-600 text-white font-black text-2xl py-5 rounded-xl border-4 border-black brutal-shadow btn-press transition-all duration-200 uppercase tracking-wide">
+                    BELI SEKARANG <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <p data-aos="fade-in" data-aos-delay="1000" class="mt-4 text-sm text-gray-400 font-medium"><i class="fas fa-clock mr-1 text-glomed-yellow"></i> Penawaran berakhir dalam hitungan jam!</p>
+        </div>
+    </header>
+
+    <!-- 2. SECTION ISI PAKET -->
+    <section class="py-20 px-4 max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="bg-black text-white font-bold px-4 py-1 rounded-full text-sm uppercase tracking-widest">Isi Paket Bundling</span>
+            <h2 class="text-3xl md:text-5xl font-black text-black mt-4 uppercase leading-none">BONGKAR ISI <span class="text-glomed-yellow bg-black px-2 transform -skew-x-12 inline-block">PAKET 150RB</span></h2>
+            <p class="mt-4 text-gray-600 font-semibold text-lg">Cek sendiri apa aja yang bakal lo dapet hari ini.</p>
+        </div>
+
+        <!-- 5 Item Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 items-stretch">
+            <!-- Item 1 -->
+            <div class="bg-white rounded-xl border-2 border-gray-200 p-4 text-center hover:border-glomed-yellow hover:scale-105 transition-all duration-300 shadow-md relative group flex flex-col">
+                <span class="absolute top-2 left-2 bg-glomed-yellow text-black text-xs font-bold px-2 py-1 rounded-md z-10">#1</span>
+                <div class="aspect-square bg-gray-100 rounded-lg mb-4 overflow-hidden shrink-0">
+                    <img src="images/3.png" alt="Kaos Distro" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h3 class="font-bold text-lg leading-tight">Kaos Sablon</h3>
+                <p class="text-xs text-gray-500 mt-1 mb-3">Item wajib anak tongkrongan</p>
+                <div class="mt-auto text-left border-t border-gray-100 pt-3">
+                    <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Cotton Combed 30s</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Sablon Plastisol Awet</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Jahitan Rantai Kuat</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="bg-white rounded-xl border-2 border-gray-200 p-4 text-center hover:border-glomed-yellow hover:scale-105 transition-all duration-300 shadow-md relative group flex flex-col">
+                <span class="absolute top-2 left-2 bg-glomed-yellow text-black text-xs font-bold px-2 py-1 rounded-md z-10">#2</span>
+                <div class="aspect-square bg-gray-100 rounded-lg mb-4 overflow-hidden shrink-0">
+                    <img src="images/5.png" alt="Underwear" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h3 class="font-bold text-lg leading-tight">Underwear Pria</h3>
+                <p class="text-xs text-gray-500 mt-1 mb-3">Nyaman dipakai seharian</p>
+                <div class="mt-auto text-left border-t border-gray-100 pt-3">
+                    <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Bahan Katun Spandex</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Anti-Lembab & Bau</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Karet Pinggang Lembut</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white rounded-xl border-2 border-gray-200 p-4 text-center hover:border-glomed-yellow hover:scale-105 transition-all duration-300 shadow-md relative group flex flex-col">
+                <span class="absolute top-2 left-2 bg-glomed-yellow text-black text-xs font-bold px-2 py-1 rounded-md z-10">#4</span>
+                <div class="aspect-square bg-gray-100 rounded-lg mb-4 overflow-hidden relative shrink-0">
+                    <img src="images/img1.jpeg" alt="Topi atau Sandal" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h3 class="font-bold text-lg leading-tight">Kaca Mata</h3>
+                <p class="text-xs text-gray-500 mt-1 mb-3">Item style untuk ke pantai</p>
+                <div class="mt-auto text-left border-t border-gray-100 pt-3">
+                    <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Kualitas Bahan Kuat</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Warna Menarik</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> All-Size Fit</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bg-white rounded-xl border-2 border-gray-200 p-4 text-center hover:border-glomed-yellow hover:scale-105 transition-all duration-300 shadow-md relative group flex flex-col">
+                <span class="absolute top-2 left-2 bg-glomed-yellow text-black text-xs font-bold px-2 py-1 rounded-md z-10">#4</span>
+                <div class="aspect-square bg-gray-100 rounded-lg mb-4 overflow-hidden relative shrink-0">
+                    <img src="images/4.png" alt="Topi atau Sandal" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <h3 class="font-bold text-lg leading-tight">Topi</h3>
+                <p class="text-xs text-gray-500 mt-1 mb-3">Item kejutan pelengkap outfit</p>
+                <div class="mt-auto text-left border-t border-gray-100 pt-3">
+                    <ul class="text-xs text-gray-700 space-y-1.5 font-medium">
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Kualitas Distro Original</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> Desain Eksklusif</li>
+                        <li><i class="fas fa-check text-green-500 mr-1"></i> All-Size Fit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="#order-section" class="inline-block bg-black text-white font-black text-xl px-10 py-4 rounded-xl border-2 border-black hover:bg-gray-800 brutal-shadow btn-press transition-all duration-200 uppercase">
+                🔥 MAU PAKET INI? ORDER SEKARANG
+            </a>
+        </div>
+    </section>
+
+    <!-- 3. SECTION KEUNGGULAN -->
+    <section class="bg-glomed-black text-white py-20 px-4 relative overflow-hidden">
+        <!-- Decoration -->
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-glomed-yellow rounded-full opacity-10 blur-3xl"></div>
+        <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-red-600 rounded-full opacity-10 blur-3xl"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <h2 class="text-3xl md:text-5xl font-black text-center mb-16 uppercase">KENAPA LO <span class="text-glomed-yellow border-b-4 border-glomed-yellow">WAJIB PUNYA?</span></h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Point 1 -->
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl text-center hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-black border-2 border-glomed-yellow rounded-full flex items-center justify-center text-3xl text-glomed-yellow mb-6 shadow-[0_0_20px_rgba(255,215,0,0.3)]">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3">Bahan Premium</h3>
+                    <p class="text-gray-400">Bukan barang obral. Kualitas distro bintang 5, bahan adem, sablon ga gampang pecah.</p>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl text-center hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-black border-2 border-glomed-yellow rounded-full flex items-center justify-center text-3xl text-glomed-yellow mb-6 shadow-[0_0_20px_rgba(255,215,0,0.3)]">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3">Desain Kekinian</h3>
+                    <p class="text-gray-400">Desain streetwear terbaru yang bikin tingkat kegantengan lo naik drastis 100%.</p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl text-center hover:-translate-y-2 transition duration-300">
+                    <div class="w-20 h-20 mx-auto bg-black border-2 border-glomed-yellow rounded-full flex items-center justify-center text-3xl text-glomed-yellow mb-6 shadow-[0_0_20px_rgba(255,215,0,0.3)]">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3 class="font-bold text-2xl mb-3">Harga Paling Hemat</h3>
+                    <p class="text-gray-400">Beli satuan bisa habis 300rb lebih. Di sini cuma 150rb dapet SEMUANYA. Untung banyak!</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="#order-section" class="inline-block bg-glomed-yellow text-black font-black text-xl md:text-2xl px-12 py-5 rounded-xl border-4 border-white hover:bg-yellow-400 brutal-shadow-white btn-press-white transition-all duration-200 uppercase">
+                    AMBIL SEKARANG SEBELUM HABIS ⚡
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PRICE & URGENCY SECTION -->
+    <section class="py-20 px-4 bg-glomed-yellow relative" id="order-section">
+        <!-- SVG Pattern -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#000 2px, transparent 2px); background-size: 30px 30px;"></div>
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 pt-12 md:p-12 text-center border-4 border-black brutal-shadow relative z-10">
+            <span class="absolute -top-5 md:-top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs sm:text-sm md:text-lg font-black px-4 md:px-6 py-2 rounded-full uppercase tracking-wider md:tracking-widest border-2 border-white whitespace-nowrap w-max">
+                PROMO TERBATAS HARI INI!
+            </span>
+            
+            <h2 class="text-3xl md:text-5xl font-black text-black mb-2 mt-2 md:mt-4 uppercase">NILAI ASLI: <span class="line-through text-red-500">RP 250.000</span></h2>
+            <p class="text-xl md:text-2xl font-bold text-gray-600 mb-6">Tapi khusus buat lo yang order sekarang...</p>
+            
+            <div class="text-6xl md:text-8xl font-black text-black mb-8 drop-shadow-md">
+                <span class="text-4xl align-top text-gray-500">Rp</span>150<span class="text-4xl text-gray-500">.000</span>
+            </div>
+            
+            <!-- Urgency Elements -->
+            <div class="bg-gray-100 rounded-xl p-6 mb-8 border border-gray-300">
+                <p class="text-red-600 font-bold text-lg mb-2 flex items-center justify-center">
+                    <i class="fas fa-exclamation-triangle mr-2 animate-pulse"></i> AWAS STOK TINGGAL SEDIKIT!
+                </p>
+                <!-- Fake Progress Bar -->
+                <div class="w-full bg-gray-300 rounded-full h-4 mb-2 overflow-hidden">
+                    <div class="bg-red-600 h-4 rounded-full" style="width: 85%"></div>
+                </div>
+                <p class="text-sm font-bold text-gray-600 mb-4">Tersisa <span class="text-red-600 text-lg">17</span> paket dari 100 paket promo</p>
+                
+                <!-- Countdown -->
+                <p class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Waktu Promo Berakhir:</p>
+                <div class="flex justify-center items-center space-x-2 text-2xl font-black text-black" id="countdown-timer">
+                    <div class="bg-black text-white px-3 py-2 rounded-lg min-w-[60px]" id="minutes">15</div>
+                    <span class="text-3xl">:</span>
+                    <div class="bg-black text-white px-3 py-2 rounded-lg min-w-[60px]" id="seconds">00</div>
+                </div>
+            </div>
+
+            <a href="https://wa.me/628995743555?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB.%20Masih%20ada%20stok%3F" target="_blank" class="block w-full bg-glomed-green text-white font-black text-2xl md:text-3xl py-5 rounded-xl border-4 border-black hover:bg-green-600 brutal-shadow btn-press transition-all duration-200 uppercase tracking-tight">
+                <i class="fab fa-whatsapp text-3xl mr-2 align-middle"></i> KLIK UNTUK AMANKAN SEKARANG
+            </a>
+            <p class="mt-4 text-sm font-bold text-gray-500">*Klik tombol di atas untuk order otomatis via WhatsApp</p>
+        </div>
+    </section>
+
+    <!-- 5. TESTIMONI -->
+    <section class="py-20 px-4 bg-gray-50 max-w-6xl mx-auto">
+        <h2 class="text-3xl md:text-5xl font-black text-center mb-4 uppercase text-black">KATA MEREKA YANG <span class="text-white bg-red-600 px-2 transform -skew-x-6 inline-block">SUDAH BELI</span></h2>
+        <p class="text-center text-gray-600 font-semibold mb-12 text-lg">Jangan cuma dengerin dari kita, cek apa kata brother kita yang udah duluan pamer.</p>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Testimonial 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition relative pt-10">
+                <div class="absolute -top-6 left-6 w-12 h-12 bg-glomed-yellow rounded-full border-4 border-white flex items-center justify-center text-xl font-bold shadow-sm">
+                    R
+                </div>
+                <div class="text-glomed-yellow mb-3 text-lg">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-700 italic mb-4">"Gokil sih ini harga 150rb dapet sebanyak ini. Kaosnya bahan tebel adem, kacamatanya juga ga murahan. Auto order lagi buat kado adek."</p>
+                <p class="font-bold text-black">- Rizky, Jakarta</p>
+                <p class="text-xs text-green-600 font-bold mt-1"><i class="fas fa-check-circle"></i> Pembeli Terverifikasi</p>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition relative pt-10">
+                <div class="absolute -top-6 left-6 w-12 h-12 bg-black text-white rounded-full border-4 border-white flex items-center justify-center text-xl font-bold shadow-sm">
+                    B
+                </div>
+                <div class="text-glomed-yellow mb-3 text-lg">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-700 italic mb-4">"Awalnya ragu takut barang abal-abal karena murah banget. Pas nyampe rumah, aseli kaget, kualitasnya mantep parah bro! Free ongkir pula, juara!"</p>
+                <p class="font-bold text-black">- Bima, Bandung</p>
+                <p class="text-xs text-green-600 font-bold mt-1"><i class="fas fa-check-circle"></i> Pembeli Terverifikasi</p>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition relative pt-10">
+                <div class="absolute -top-6 left-6 w-12 h-12 bg-glomed-yellow rounded-full border-4 border-white flex items-center justify-center text-xl font-bold shadow-sm">
+                    D
+                </div>
+                <div class="text-glomed-yellow mb-3 text-lg">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="text-gray-700 italic mb-4">"Pengiriman cepet banget, admin ramah. Dapet topi keren banget pas random itemnya. Thanks Glomed & Co, sukses terus!"</p>
+                <p class="font-bold text-black">- Dimas, Surabaya</p>
+                <p class="text-xs text-green-600 font-bold mt-1"><i class="fas fa-check-circle"></i> Pembeli Terverifikasi</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. CTA FINAL -->
+    <footer class="bg-glomed-black text-center pt-20 pb-24 px-4 border-t-8 border-glomed-yellow relative">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-4xl md:text-6xl font-black text-white uppercase mb-6 leading-none">
+                JANGAN SAMPAI <span class="text-red-500">KEHABISAN!</span>
+            </h2>
+            <p class="text-xl text-gray-400 mb-10 font-semibold">Tutup halaman ini = promo hangus. Keputusan di tangan lo.</p>
+            
+            <a href="https://wa.me/628995743555?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB" target="_blank" class="inline-block w-full max-w-lg bg-glomed-green text-white font-black text-2xl py-6 rounded-2xl border-4 border-white brutal-shadow-white hover:bg-green-600 btn-press-white transition-all duration-200 shadow-2xl animate-bounce">
+                <i class="fab fa-whatsapp text-4xl mb-2 block"></i>
+                ORDER SEKARANG VIA WHATSAPP
+            </a>
+            
+            <div class="mt-12 flex justify-center items-center space-x-6 text-gray-500 text-3xl">
+                <i class="fab fa-instagram hover:text-white transition cursor-pointer"></i>
+                <i class="fab fa-tiktok hover:text-white transition cursor-pointer"></i>
+                <i class="fab fa-facebook hover:text-white transition cursor-pointer"></i>
+            </div>
+            <p class="mt-6 text-sm font-bold text-gray-600">© 2026 Glomed & Co. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Countdown Script -->
+    <script>
+        // Set timer for 15 minutes (900 seconds)
+        let totalSeconds = 15 * 60;
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+
+        const updateTimer = () => {
+            let m = Math.floor(totalSeconds / 60);
+            let s = totalSeconds % 60;
+            
+            minutesEl.innerText = m < 10 ? '0' + m : m;
+            secondsEl.innerText = s < 10 ? '0' + s : s;
+            
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                // Reset or keep at 0. Here we reset for infinite loop FOMO effect
+                totalSeconds = 15 * 60; 
+            }
+        };
+
+        // Initial call and set interval
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
