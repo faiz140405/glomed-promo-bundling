@@ -55,7 +55,6 @@
     </script>
     <style>
         /* Custom styles for hard selling elements */
-        body { padding-bottom: 80px; } /* Space for sticky CTA */
         .brutal-shadow {
             box-shadow: 6px 6px 0px 0px rgba(0,0,0,1);
         }
@@ -73,7 +72,7 @@
             transform: translate(4px, 4px);
             box-shadow: 0px 0px 0px 0px rgba(255,255,255,1) !important;
         }
-
+        
         /* FIX ANIMASI: Keyframes ditambahkan secara manual di CSS agar tidak bergantung pada Tailwind JIT */
         @keyframes customFadeInUp {
             0% { opacity: 0; transform: translateY(30px); }
@@ -94,33 +93,25 @@
         
         .animate-on-scroll { opacity: 0; }
         .is-visible { animation: customFadeInUp 0.8s ease-out forwards; }
+        
+        /* WA Chat Texture */
+        .wa-bg {
+            background-color: #efeae2;
+            background-image: url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg');
+            background-blend-mode: overlay;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans antialiased overflow-x-hidden">
-
-    <!-- 0. STICKY BOTTOM CTA (URGENT & HARD SELLING) -->
-    <div class="fixed bottom-0 left-0 w-full z-50 bg-white border-t-4 border-black p-3 md:p-4 shadow-[0_-10px_20px_rgba(0,0,0,0.2)]">
-        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <div class="hidden sm:block text-black font-black text-sm md:text-base uppercase tracking-tight">
-                <span class="text-red-600 animate-pulse block text-xs">Sisa 17 Paket!</span>
-                Hari ini terakhir!
-            </div>
-            <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB.%20Masih%20ada%20stok%3F" target="_blank" class="w-full sm:w-auto flex-1 bg-red-600 hover:bg-red-700 text-white text-center py-3 px-6 rounded-xl font-black text-lg md:text-xl border-2 border-black brutal-shadow btn-press transition-all duration-200 uppercase flex items-center justify-center gap-2">
-                🔥 BELI SEKARANG - 150RB FREE ONGKIR
-            </a>
-        </div>
-    </div>
 
     <!-- 1. HERO SECTION -->
     <header class="bg-glomed-black text-white relative pt-12 pb-24 px-4 overflow-hidden border-b-8 border-glomed-yellow">
         <!-- Background Images (Crossfade Animation) -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-black">
             <!-- Image 1 (Base) -->
-            <div class="absolute inset-0 bg-[url('images/1.png')] bg-cover bg-center opacity-40"></div>
-            <!-- Image 2 (Animated Fade Over Image 1) -->
-            <div class="absolute inset-0 bg-[url('images/2.png')] bg-cover bg-center animate-hero-fade"></div>
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-30 grayscale mix-blend-overlay"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-0"></div>
         </div>
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-0"></div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-center mt-4">
             <!-- Urgency Badge -->
@@ -128,7 +119,7 @@
                 ⚡ PROMO TERBATAS HARI INI
             </div>
             
-            <!-- Live Counter (Dikembalikan ke semula) -->
+            <!-- Live Counter -->
             <div class="flex justify-center mb-6 h-10">
                 <div class="inline-flex items-center bg-transparent border border-red-500 rounded-full px-4 py-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping mr-3"></span>
@@ -144,7 +135,7 @@
                 <span class="bg-red-600 px-3 py-1 transform -skew-x-6 inline-block border-4 border-black brutal-shadow mb-3 text-4xl md:text-6xl lg:text-7xl">5 ITEM?</span><br>
                 TOKO LAIN BERANI?
             </h1>
-            
+
             <!-- NEW: BISA COD ANIMATED BANNER -->
             <div class="my-8 md:my-10">
                 <div class="inline-block bg-[#25D366] text-white border-4 border-black brutal-shadow-white px-6 md:px-10 py-3 md:py-4 transform rotate-2 hover:-rotate-2 transition-all duration-300 animate-pulse cursor-pointer">
@@ -179,96 +170,86 @@
     <section class="py-20 px-4 max-w-6xl mx-auto bg-white overflow-hidden">
         <div class="text-center mb-14 animate-on-scroll">
             <span class="bg-red-600 text-white font-black px-6 py-2 rounded-full text-sm uppercase tracking-widest border-2 border-black brutal-shadow">Bongkar Isi Paket</span>
-            <h2 class="text-4xl md:text-6xl font-black text-black mt-8 uppercase leading-none">Nih Yang Bakal <br><span class="text-glomed-yellow bg-black px-4 py-1 mt-2 transform -skew-x-6 inline-block">Lo Dapet Hari Ini!</span></h2>
+            <h2 class="text-4xl md:text-6xl font-black text-black mt-8 uppercase leading-none">DAPET APA AJA <span class="text-glomed-yellow bg-black px-4 py-1 mt-2 transform -skew-x-6 inline-block">DENGAN 150RB?</span></h2>
             <p class="mt-6 text-red-600 font-black text-xl animate-pulse">⚠️ SISA 17 PAKET! SIAPA CEPAT DIA DAPAT! ⚠️</p>
         </div>
 
-        <!-- Grid Items -->
+        <!-- 4 Item Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             
-            <!-- Item 1 -->
+            <!-- Item 1: Kaos -->
             <div class="bg-gray-50 rounded-2xl border-4 border-black p-5 text-center hover:-translate-y-2 transition-transform duration-300 brutal-shadow relative flex flex-col animate-on-scroll">
-                <span class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-3 py-2 rounded-full border-2 border-black brutal-shadow transform rotate-12 z-20">BEST SELLER</span>
+                <span class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-3 py-2 rounded-full border-2 border-black brutal-shadow transform rotate-12 z-20">SENILAI RP 100.000</span>
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">1</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0">
-                    <img src="images/kaos sablon.jpg" alt="Kaos Distro" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/kaos%20sablon.jpg" onerror="this.src='https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500'" alt="Kaos Distro" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="font-black text-2xl uppercase mb-1">Kaos Sablon</h3>
-                <p class="text-sm text-gray-600 font-bold mb-4">Item wajib anak tongkrongan</p>
+                <h3 class="font-black text-2xl uppercase mb-1">Kaos Sablon Premium</h3>
+                <p class="text-sm text-gray-600 font-bold mb-4">Bukan kaos tipis murahan! Bahan tebal, nyerap keringat, & sablon anti pecah. Siap buat nongkrong seharian.</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
-                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Cotton Combed 30s</li>
+                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> 100% Cotton Combed 24s</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Sablon Plastisol Awet</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Jahitan Rantai Standar Distro</li>
                     </ul>
-                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
-                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
-                        <span class="text-lg font-black text-gray-500 line-through">Rp 100.000</span>
-                    </div>
                 </div>
             </div>
             
-            <!-- Item 2 -->
+            <!-- Item 2: Underwear -->
             <div class="bg-gray-50 rounded-2xl border-4 border-black p-5 text-center hover:-translate-y-2 transition-transform duration-300 brutal-shadow relative flex flex-col animate-on-scroll" style="animation-delay: 100ms;">
+                <span class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-3 py-2 rounded-full border-2 border-black brutal-shadow transform rotate-12 z-20">SENILAI RP 30.000</span>
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">2</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0">
-                    <img src="images/underwear.jpg" alt="Underwear" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/underwear.jpg" onerror="this.src='https://images.unsplash.com/photo-1565084888279-aca607ecce0c?w=500'" alt="Underwear" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Underwear Pria</h3>
-                <p class="text-sm text-gray-600 font-bold mb-4">Nyaman dipakai seharian</p>
+                <p class="text-sm text-gray-600 font-bold mb-4">Aset berharga wajib dijaga bro! Celana dalam super nyaman, bebas gerah, dan anti selip pas dipake.</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
-                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Bahan Katun Spandex</li>
+                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Bahan Katun Spandex Premium</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Anti-Lembab & Bau</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Karet Elastis Tidak Berbekas</li>
                     </ul>
-                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
-                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
-                        <span class="text-lg font-black text-gray-500 line-through">Rp 30.000</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Item 3 -->
+            <!-- Item 3: Kacamata -->
             <div class="bg-gray-50 rounded-2xl border-4 border-black p-5 text-center hover:-translate-y-2 transition-transform duration-300 brutal-shadow relative flex flex-col animate-on-scroll" style="animation-delay: 200ms;">
-                <span class="absolute -top-4 -right-4 bg-black text-glomed-yellow text-xs font-black px-3 py-2 rounded-full border-2 border-glomed-yellow transform -rotate-6 z-20">TERLARIS</span>
+                <span class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-3 py-2 rounded-full border-2 border-black brutal-shadow transform rotate-12 z-20">SENILAI RP 35.000</span>
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">3</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0 relative">
-                    <img src="images/kacamata.jpg" alt="Kaca Mata" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/kacamata.jpg" onerror="this.src='https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500'" alt="Kaca Mata" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
-                <h3 class="font-black text-2xl uppercase mb-1">Kaca Mata</h3>
-                <p class="text-sm text-gray-600 font-bold mb-4">Item style untuk ke pantai</p>
+                <h3 class="font-black text-2xl uppercase mb-1">Kacamata Streetwear</h3>
+                <p class="text-sm text-gray-600 font-bold mb-4">Tingkatin level kegantengan lo 100% secara instan! Auto dilirik pas lagi riding atau nongkrong sore.</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
+                    <ul class="text-sm text-gray-800 font-bold space-y-2">
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Kualitas Bahan Kuat</li>
-                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Lensa Anti Silau</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Lensa Anti Silau Matahari</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Desain Macho Ala Hypebeast</li>
                     </ul>
-                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
-                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
-                        <span class="text-lg font-black text-gray-500 line-through">Rp 35.000</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Item 4 & 5 -->
+            <!-- Item 4: Topi -->
             <div class="bg-gray-50 rounded-2xl border-4 border-black p-5 text-center hover:-translate-y-2 transition-transform duration-300 brutal-shadow relative flex flex-col bg-gradient-to-br from-gray-50 to-gray-200 animate-on-scroll" style="animation-delay: 300ms;">
-                <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-sm font-black px-3 py-1 rounded-full border-2 border-black z-10">4 & 5</span>
+                <span class="absolute -top-4 -right-4 bg-red-600 text-white text-xs font-black px-3 py-2 rounded-full border-2 border-black brutal-shadow transform rotate-12 z-20">SENILAI RP 35.000</span>
+                <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">4 & 5</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0 relative flex justify-center items-center">
-                    <img src="images/topi.jpg" alt="Topi + Item Kejutan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/topi.jpg" onerror="this.src='https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500'" alt="Topi + Item Kejutan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Topi + Aksesoris</h3>
-                <p class="text-sm text-gray-600 font-bold mb-4">Item kejutan pelengkap outfit</p>
+                <p class="text-sm text-gray-600 font-bold mb-4">Bad hair day? Tutup pake topi ini langsung beres. Ditambah item misteri keren buat pelengkap outfit lo.</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
-                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Kualitas Distro Original</li>
-                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Plus item misteri keren!</li>
+                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Bahan Kanvas Twill Tahan Banting</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Sablon/Bordir Rapi</li>
+                        <li><i class="fas fa-fire text-red-500 mr-2"></i> Plus Aksesoris Kejutan</li>
                     </ul>
-                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
-                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
-                        <span class="text-lg font-black text-gray-500 line-through">Rp 35.000</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -284,15 +265,15 @@
                 <!-- Breakdown List -->
                 <div class="mt-8 space-y-4 font-bold text-base md:text-xl text-gray-700">
                     <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
-                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kaos Sablon</span>
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kaos Sablon Premium</span>
                         <span class="text-gray-500 font-black tracking-wide">Rp 100.000</span>
                     </div>
                     <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
-                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Underwear</span>
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Underwear Pria</span>
                         <span class="text-gray-500 font-black tracking-wide">Rp 30.000</span>
                     </div>
                     <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
-                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kacamata</span>
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kacamata Streetwear</span>
                         <span class="text-gray-500 font-black tracking-wide">Rp 35.000</span>
                     </div>
                     <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
@@ -315,9 +296,13 @@
                         <p class="text-xs md:text-lg font-black uppercase tracking-widest text-black mb-2 bg-white inline-block px-4 py-1.5 border-2 border-black rounded-full transform rotate-2 shadow-sm">
                             DENGAN BUNDLING INI CUKUP BAYAR:
                         </p>
-                        <div class="text-6xl md:text-8xl font-black text-red-600 drop-shadow-[4px_4px_0_rgba(0,0,0,1)] tracking-tighter my-4 group-hover:scale-110 transition-transform duration-300">
-                            Rp 150<span class="text-4xl md:text-6xl">.000</span>
+                        
+                        <div class="flex justify-center items-end tracking-tighter text-black font-black mb-2 mt-4 group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-3xl md:text-4xl leading-none pb-2">Rp</span>
+                            <span class="text-6xl md:text-8xl text-red-600 leading-none" style="text-shadow: 6px 6px 0px #000;">150</span>
+                            <span class="text-3xl md:text-4xl leading-none pb-2">.000</span>
                         </div>
+
                         <p class="bg-black text-glomed-yellow inline-block px-4 md:px-6 py-2 rounded-xl text-sm md:text-2xl font-black uppercase animate-pulse border-2 border-white brutal-shadow-white mt-2">
                             🔥 FREE ONGKIR & BISA COD! 🔥
                         </p>
@@ -335,43 +320,43 @@
     </section>
 
     <!-- 3. SECTION KEUNGGULAN (AGRESIF) -->
-    <section class="bg-black text-white py-20 px-4 relative overflow-hidden border-y-8 border-red-600">
+    <section class="bg-glomed-black text-white py-20 px-4 relative overflow-hidden animate-on-scroll">
         <!-- Decoration -->
         <div class="absolute -right-20 -top-20 w-96 h-96 bg-glomed-yellow rounded-full opacity-10 blur-3xl"></div>
         <div class="absolute -left-20 -bottom-20 w-96 h-96 bg-red-600 rounded-full opacity-20 blur-3xl"></div>
 
         <div class="max-w-5xl mx-auto relative z-10">
-            <h2 class="text-4xl md:text-6xl font-black text-center mb-16 uppercase leading-tight animate-on-scroll">
+            <h2 class="text-4xl md:text-6xl font-black text-center mb-16 uppercase leading-tight">
                 GAK USAH MIKIR PANJANG, <br>
                 <span class="text-glomed-yellow bg-red-600 px-4 mt-2 inline-block transform -rotate-2">INI ALASAN LO WAJIB BELI!</span>
             </h2>
             
             <div class="grid md:grid-cols-3 gap-8 mb-16">
                 <!-- Point 1 -->
-                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 animate-on-scroll">
+                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 group">
                     <div class="w-24 h-24 mx-auto bg-black border-4 border-glomed-yellow rounded-full flex items-center justify-center text-4xl text-glomed-yellow mb-6 shadow-[0_0_30px_rgba(255,215,0,0.4)] animate-wiggle">
                         <i class="fas fa-crown"></i>
                     </div>
                     <h3 class="font-black text-2xl mb-3 uppercase">Bukan Barang Obral</h3>
-                    <p class="text-gray-400 font-semibold text-lg">Kualitas distro bintang 5, bahan adem, sablon ga gampang pecah. Boleh diadu!</p>
+                    <p class="text-gray-400 font-semibold text-lg">Kualitas distro bintang 5, bahan adem, sablon ga gampang pecah. Boleh diadu sama merk mahal!</p>
                 </div>
 
                 <!-- Point 2 -->
-                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 animate-on-scroll" style="animation-delay: 100ms;">
+                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 group" style="animation-delay: 100ms;">
                     <div class="w-24 h-24 mx-auto bg-black border-4 border-red-600 rounded-full flex items-center justify-center text-4xl text-red-600 mb-6 shadow-[0_0_30px_rgba(220,38,38,0.4)] animate-wiggle">
                         <i class="fas fa-fire-alt"></i>
                     </div>
-                    <h3 class="font-black text-2xl mb-3 uppercase">Desain Kekinian</h3>
+                    <h3 class="font-black text-2xl mb-3 uppercase">Auto Kegantengan +100%</h3>
                     <p class="text-gray-400 font-semibold text-lg">Desain streetwear terbaru yang bikin style lo makin brutal. Sekali pake langsung hypebeast!</p>
                 </div>
 
                 <!-- Point 3 -->
-                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 animate-on-scroll" style="animation-delay: 200ms;">
+                <div class="bg-gray-900 border-4 border-gray-800 p-8 rounded-2xl text-center hover:border-glomed-yellow hover:-translate-y-2 transition duration-300 group" style="animation-delay: 200ms;">
                     <div class="w-24 h-24 mx-auto bg-black border-4 border-green-500 rounded-full flex items-center justify-center text-4xl text-green-500 mb-6 shadow-[0_0_30px_rgba(34,197,94,0.4)] animate-wiggle">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
-                    <h3 class="font-black text-2xl mb-3 uppercase">Harga Paling Hemat</h3>
-                    <p class="text-gray-400 font-semibold text-lg">Beli eceran bisa habis 300rb lebih. Di sini cuma 150rb dapet SEMUANYA. Hemat mampus!</p>
+                    <h3 class="font-black text-2xl mb-3 uppercase">Rugi Bandar Buat Kita!</h3>
+                    <p class="text-gray-400 font-semibold text-lg">Beli eceran bisa habis 200rb lebih. Di sini cuma 150rb dapet SEMUANYA. Hemat mampus!</p>
                 </div>
             </div>
             
@@ -390,7 +375,6 @@
         
         <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-14 text-center border-8 border-black brutal-shadow relative z-10 animate-on-scroll">
             
-            <!-- PERBAIKAN 1: Membungkus badge dengan div untuk memastikan center absolut -->
             <div class="absolute -top-6 left-0 w-full flex justify-center z-20">
                 <span class="bg-red-600 text-white text-lg md:text-2xl font-black px-8 py-3 rounded-full uppercase tracking-widest border-4 border-black brutal-shadow whitespace-nowrap animate-bounce">
                     HARI INI TERAKHIR!
@@ -430,7 +414,7 @@
                 </div>
                 <p class="text-lg md:text-xl font-black text-gray-800 mb-6">Tersisa <span class="text-red-600 text-3xl mx-1 animate-pulse">17</span> paket hari ini!</p>
                 
-                <!-- Countdown 2 Hours -->
+                <!-- Countdown -->
                 <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Promo Berakhir Dalam:</p>
                 <div class="flex justify-center items-center gap-1 sm:gap-2 md:gap-3 font-black text-black" id="countdown-timer">
                     <div class="bg-black text-white px-2 py-2 md:px-4 md:py-3 rounded-xl min-w-[65px] sm:min-w-[80px] border-b-4 border-gray-700 shadow-inner flex flex-col items-center">
@@ -458,7 +442,7 @@
         </div>
     </section>
 
-    <!-- 5. TESTIMONI (REALISTIS & CASUAL) -->
+    <!-- 5. TESTIMONI (REALISTIS & CASUAL WA CHAT) -->
     <section class="py-24 px-4 bg-gray-50 max-w-6xl mx-auto border-t-8 border-black">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl md:text-6xl font-black mb-4 uppercase text-black">
@@ -470,9 +454,9 @@
 
         <div class="grid md:grid-cols-3 gap-8">
             <!-- WA Testi 1 -->
-            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm">
+            <div class="bg-[#E5DDD5] wa-bg rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm">
                 <!-- WA Header -->
-                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10 relative">
                     <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
                         <img src="https://ui-avatars.com/api/?name=Andi&background=random" alt="Andi" class="w-full h-full object-cover">
                     </div>
@@ -482,19 +466,19 @@
                     </div>
                 </div>
                 <!-- WA Body -->
-                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full">
                     <div class="text-center mb-2">
                         <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Hari Ini</span>
                     </div>
                     <!-- Buyer Message -->
                     <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
-                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=300&fit=crop" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Paket Kaos">
+                        <img src="images/ulasan-1.jpg" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Upload+Foto+Ulasan+1+Di+Sini'" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Foto Ulasan 1">
                         <p class="text-gray-800 font-semibold">Min paket udah mendarat! Murah banget anjir 😭 dapet banyak banget, awalnya kirain boong ternyata real pic!</p>
                         <div class="text-right mt-1">
                             <span class="text-[10px] text-gray-400">14:02</span>
                         </div>
                     </div>
-                    <!-- Admin Reply -->
+                    <!-- Admin Reply -->ulasan-1ulasan-ulasan-
                     <div class="self-end bg-[#DCF8C6] p-2 pb-1 rounded-lg rounded-tr-none max-w-[85%] relative shadow-md border border-green-200 mt-2">
                         <p class="text-gray-800 font-semibold">Wah mantap kak Andi! Makasih udah order ya, bahannya adem kan? 🔥</p>
                         <div class="text-right mt-1 flex items-center justify-end gap-1">
@@ -506,9 +490,9 @@
             </div>
 
             <!-- WA Testi 2 -->
-            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 150ms;">
+            <div class="bg-[#E5DDD5] wa-bg rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 150ms;">
                 <!-- WA Header -->
-                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10 relative">
                     <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
                         <img src="https://ui-avatars.com/api/?name=Bima+Putra&background=random" alt="Bima" class="w-full h-full object-cover">
                     </div>
@@ -518,12 +502,13 @@
                     </div>
                 </div>
                 <!-- WA Body -->
-                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full">
                     <div class="text-center mb-2">
                         <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Kemarin</span>
                     </div>
                     <!-- Buyer Message -->
                     <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
+                        <img src="images/ulasan-2.jpg" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Upload+Foto+Ulasan+2+Di+Sini'" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Foto Ulasan 2">
                         <p class="text-gray-800 font-semibold">Bro sumpah ini rugi bandar wkwk, kaosnya tebel sablonan rapih banget. Boxer nya jg enak dipake harian. Worth it parah!!</p>
                         <div class="text-right mt-1">
                             <span class="text-[10px] text-gray-400">18:30</span>
@@ -541,9 +526,9 @@
             </div>
 
             <!-- WA Testi 3 -->
-            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 300ms;">
+            <div class="bg-[#E5DDD5] wa-bg rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 300ms;">
                 <!-- WA Header -->
-                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10 relative">
                     <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
                         <img src="https://ui-avatars.com/api/?name=Dimas&background=random" alt="Dimas" class="w-full h-full object-cover">
                     </div>
@@ -553,13 +538,13 @@
                     </div>
                 </div>
                 <!-- WA Body -->
-                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full">
                     <div class="text-center mb-2">
                         <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Hari Ini</span>
                     </div>
                     <!-- Buyer Message -->
                     <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
-                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=300&fit=crop" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Paket Kacamata">
+                        <img src="images/ulasan-3.jpg" onerror="this.src='https://placehold.co/400x300/e2e8f0/64748b?text=Upload+Foto+Ulasan+3+Di+Sini'" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Foto Ulasan 3">
                         <p class="text-gray-800 font-semibold">Paket mendarat aman bro, pengiriman gercep. Kacamata sama topinya ngeri beut dah bikin PD naik 1000% 🔥</p>
                         <div class="text-right mt-1">
                             <span class="text-[10px] text-gray-400">09:15</span>
@@ -588,7 +573,6 @@
             </h2>
             <p class="text-2xl text-gray-300 mb-12 font-bold uppercase tracking-wide">Tutup halaman ini = Promo <span class="text-red-500 line-through">150RB</span> Hangus. <br>Besok balik harga <span class="text-glomed-yellow">200RB!</span></p>
             
-            <!-- PERBAIKAN 2: Mengganti inline-block menjadi flex dan menambahkan mx-auto -->
             <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB" target="_blank" class="flex w-full max-w-2xl mx-auto bg-glomed-yellow text-black font-black text-3xl md:text-5xl py-8 rounded-2xl border-8 border-white brutal-shadow-white hover:bg-white hover:text-red-600 btn-press-white transition-all duration-300 shadow-2xl animate-pulse flex-col items-center justify-center gap-2 text-center">
                 <span class="flex items-center justify-center"><i class="fab fa-whatsapp text-5xl mr-4"></i> KLIK DI SINI!</span>
                 <span class="text-lg md:text-2xl mt-2 tracking-widest font-bold text-gray-800">JANGAN SAMPAI KEHABISAN</span>
@@ -602,18 +586,6 @@
             <p class="mt-8 text-sm font-bold text-gray-700 uppercase tracking-widest">© 2026 Glomed & Co. All Rights Reserved.</p>
         </div>
     </footer>
-
-    <!-- FAKE NOTIFICATION POPUP MELAYANG DI BAWAH (SOCIAL PROOF) -->
-    <div id="fake-notif" class="fixed bottom-20 md:bottom-24 left-4 md:left-6 z-40 bg-white border-2 border-black brutal-shadow rounded-xl p-3 flex items-center gap-3 opacity-0 pointer-events-none max-w-[280px] sm:max-w-xs transition-all">
-        <div class="w-10 h-10 bg-glomed-yellow border-2 border-black rounded-full flex items-center justify-center text-black font-black shrink-0 shadow-inner">
-            <i class="fas fa-shopping-bag"></i>
-        </div>
-        <div>
-            <p id="notif-name" class="font-black text-sm text-black leading-tight">Denny</p>
-            <p id="notif-action" class="text-xs text-gray-600 font-bold leading-tight mt-0.5">sedang membeli produk ini</p>
-            <p class="text-[10px] text-gray-400 mt-1"><i class="fas fa-check-circle text-green-500 mr-1"></i> Terverifikasi</p>
-        </div>
-    </div>
 
     <!-- Scripts for Logic & Animations -->
     <script>
@@ -646,24 +618,26 @@
             "menambahkan ke keranjang 🛍️"
         ];
         
-        const notifEl = document.getElementById('fake-notif');
-        const notifNameEl = document.getElementById('notif-name');
-        const notifActionEl = document.getElementById('notif-action');
+        const notifEl = document.getElementById('fake-notification');
+        const notifNameEl = document.getElementById('notify-name');
+        const notifCityEl = document.getElementById('notify-city');
+        const notifActionEl = document.getElementById('notify-action');
         
         const showNotification = () => {
             const name = names[Math.floor(Math.random() * names.length)];
             const city = cities[Math.floor(Math.random() * cities.length)];
             const action = actions[Math.floor(Math.random() * actions.length)];
             
-            notifNameEl.innerText = `${name} - ${city}`;
+            notifNameEl.innerText = name;
+            notifCityEl.innerText = city;
             notifActionEl.innerText = action;
             
-            notifEl.classList.remove('popup-leave', 'opacity-0');
-            notifEl.classList.add('popup-enter');
+            notifEl.classList.remove('translate-y-32', 'opacity-0');
+            notifEl.classList.add('translate-y-0', 'opacity-100');
             
             setTimeout(() => {
-                notifEl.classList.remove('popup-enter');
-                notifEl.classList.add('popup-leave');
+                notifEl.classList.remove('translate-y-0', 'opacity-100');
+                notifEl.classList.add('translate-y-32', 'opacity-0');
             }, 4000);
         };
 
@@ -702,7 +676,7 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
-        // 3. Simple Intersection Observer for scroll animations
+        // 4. Simple Intersection Observer for scroll animations
         document.addEventListener("DOMContentLoaded", function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
