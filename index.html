@@ -415,7 +415,7 @@
         </div>
     </section>
 
-    <!-- 5. TESTIMONI (HANYA MENAMPILKAN 4 GAMBAR SCREENSHOT) -->
+    <!-- 5. TESTIMONI (GAMBAR FULL, TIDAK TERPOTONG) -->
     <section class="py-24 px-4 bg-gray-50 max-w-6xl mx-auto border-t-8 border-black">
         <div class="text-center mb-16 animate-on-scroll">
             <h2 class="text-4xl md:text-6xl font-black mb-4 uppercase text-black">
@@ -425,15 +425,15 @@
             <p class="text-gray-600 font-bold text-xl mt-6">Ratusan paket udah mendarat aman. Cek langsung bukti nyatanya dari brother kita!</p>
         </div>
 
-        <!-- PERHATIKAN DI SINI KITA PAKAI grid-cols-4 UNTUK MEMBUAT 4 TEMPAT BERDAMPINGAN -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Grid Items: 4 Kolom -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             
             <!-- TEMPAT FOTO 1 -->
             <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition duration-300 animate-on-scroll">
-                <div class="aspect-[3/4] bg-[#e2e8f0] rounded-xl overflow-hidden flex flex-col items-center justify-center relative border border-gray-300">
-                    <img src="images/ulasan-1.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 1" class="w-full h-full object-cover">
+                <div class="w-full bg-[#e2e8f0] rounded-xl overflow-hidden border border-gray-300">
+                    <img src="images/ulasan-1.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 1" class="w-full h-auto block">
                     <!-- TEKS INI AKAN MUNCUL JIKA GAMBAR BELUM ADA -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
+                    <div class="min-h-[300px] w-full flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
                         Upload Foto Testimoni 1
                     </div>
                 </div>
@@ -441,10 +441,10 @@
 
             <!-- TEMPAT FOTO 2 -->
             <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition duration-300 animate-on-scroll" style="animation-delay: 100ms;">
-                <div class="aspect-[3/4] bg-[#e2e8f0] rounded-xl overflow-hidden flex flex-col items-center justify-center relative border border-gray-300">
-                    <img src="images/ulasan-2.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 2" class="w-full h-full object-cover">
+                <div class="w-full bg-[#e2e8f0] rounded-xl overflow-hidden border border-gray-300">
+                    <img src="images/ulasan-2.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 2" class="w-full h-auto block">
                     <!-- TEKS INI AKAN MUNCUL JIKA GAMBAR BELUM ADA -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
+                    <div class="min-h-[300px] w-full flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
                         Upload Foto Testimoni 2
                     </div>
                 </div>
@@ -452,10 +452,10 @@
 
             <!-- TEMPAT FOTO 3 -->
             <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition duration-300 animate-on-scroll" style="animation-delay: 200ms;">
-                <div class="aspect-[3/4] bg-[#e2e8f0] rounded-xl overflow-hidden flex flex-col items-center justify-center relative border border-gray-300">
-                    <img src="images/ulasan-3.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 3" class="w-full h-full object-cover">
+                <div class="w-full bg-[#e2e8f0] rounded-xl overflow-hidden border border-gray-300">
+                    <img src="images/ulasan-3.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 3" class="w-full h-auto block">
                     <!-- TEKS INI AKAN MUNCUL JIKA GAMBAR BELUM ADA -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
+                    <div class="min-h-[300px] w-full flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
                         Upload Foto Testimoni 3
                     </div>
                 </div>
@@ -463,10 +463,10 @@
 
             <!-- TEMPAT FOTO 4 -->
             <div class="bg-white p-4 rounded-2xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-2 transition duration-300 animate-on-scroll" style="animation-delay: 300ms;">
-                <div class="aspect-[3/4] bg-[#e2e8f0] rounded-xl overflow-hidden flex flex-col items-center justify-center relative border border-gray-300">
-                    <img src="images/ulasan-4.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 4" class="w-full h-full object-cover">
+                <div class="w-full bg-[#e2e8f0] rounded-xl overflow-hidden border border-gray-300">
+                    <img src="images/ulasan-4.jpeg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Ulasan 4" class="w-full h-auto block">
                     <!-- TEKS INI AKAN MUNCUL JIKA GAMBAR BELUM ADA -->
-                    <div class="absolute inset-0 flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
+                    <div class="min-h-[300px] w-full flex-col items-center justify-center text-center px-4 text-slate-500 font-bold" style="display: none;">
                         Upload Foto Testimoni 4
                     </div>
                 </div>
