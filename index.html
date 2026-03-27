@@ -79,6 +79,18 @@
             0% { opacity: 0; transform: translateY(30px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
+        /* FAKE POPUP ANIMATIONS */
+        @keyframes popupEnter {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes popupLeave {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(100px); opacity: 0; }
+        }
+        .popup-enter { animation: popupEnter 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+        .popup-leave { animation: popupLeave 0.5s ease-in forwards; }
         
         .animate-on-scroll { opacity: 0; }
         .is-visible { animation: customFadeInUp 0.8s ease-out forwards; }
@@ -104,9 +116,9 @@
         <!-- Background Images (Crossfade Animation) -->
         <div class="absolute inset-0 z-0 overflow-hidden bg-black">
             <!-- Image 1 (Base) -->
-            <div class="absolute inset-0 bg-[url('1.png')] bg-cover bg-center opacity-40"></div>
+            <div class="absolute inset-0 bg-[url('images/1.png')] bg-cover bg-center opacity-40"></div>
             <!-- Image 2 (Animated Fade Over Image 1) -->
-            <div class="absolute inset-0 bg-[url('2.png')] bg-cover bg-center animate-hero-fade"></div>
+            <div class="absolute inset-0 bg-[url('images/2.png')] bg-cover bg-center animate-hero-fade"></div>
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-0"></div>
 
@@ -116,11 +128,13 @@
                 ⚡ PROMO TERBATAS HARI INI
             </div>
             
-            <!-- Live Counter -->
-            <div class="flex justify-center mb-6">
-                <div class="inline-flex items-center bg-black/60 backdrop-blur-sm border border-red-500 rounded-full px-4 py-2">
+            <!-- Live Counter (Dikembalikan ke semula) -->
+            <div class="flex justify-center mb-6 h-10">
+                <div class="inline-flex items-center bg-transparent border border-red-500 rounded-full px-4 py-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping mr-3"></span>
-                    <span class="text-white text-xs md:text-sm font-bold tracking-wide">🔥 <span id="live-viewers" class="text-glomed-yellow text-base font-black">23</span> orang sedang melihat produk ini sekarang</span>
+                    <span class="text-white text-xs md:text-sm font-bold tracking-wide">
+                        🔥 <span id="live-viewers" class="text-glomed-yellow font-black text-base">33</span> orang sedang melihat produk ini sekarang
+                    </span>
                 </div>
             </div>
             
@@ -130,6 +144,16 @@
                 <span class="bg-red-600 px-3 py-1 transform -skew-x-6 inline-block border-4 border-black brutal-shadow mb-3 text-4xl md:text-6xl lg:text-7xl">5 ITEM?</span><br>
                 TOKO LAIN BERANI?
             </h1>
+            
+            <!-- NEW: BISA COD ANIMATED BANNER -->
+            <div class="my-8 md:my-10">
+                <div class="inline-block bg-[#25D366] text-white border-4 border-black brutal-shadow-white px-6 md:px-10 py-3 md:py-4 transform rotate-2 hover:-rotate-2 transition-all duration-300 animate-pulse cursor-pointer">
+                    <span class="text-3xl md:text-5xl font-black uppercase tracking-widest flex items-center justify-center gap-3 drop-shadow-md">
+                        <i class="fas fa-hand-holding-usd text-glomed-yellow text-4xl md:text-6xl"></i>
+                        BISA COD (BAYAR DI TEMPAT)
+                    </span>
+                </div>
+            </div>
             
             <p class="text-xl md:text-3xl mb-8 font-extrabold text-gray-300 max-w-3xl mx-auto leading-snug">
                 Style hypebeast dari ujung kepala sampe kaki cuma <span class="text-glomed-yellow underline decoration-red-600 decoration-4">SEKALI BAYAR</span>. Jangan sampai kehabisan!
@@ -142,7 +166,7 @@
             <!-- Hero CTA -->
             <div class="mt-4 relative inline-block w-full max-w-md">
                 <div class="absolute -inset-1 bg-gradient-to-r from-red-600 to-glomed-yellow rounded-xl blur opacity-75 animate-pulse"></div>
-                <a href="#order-section" class="relative block w-full bg-red-600 text-white font-black text-2xl md:text-3xl py-5 rounded-xl border-4 border-black brutal-shadow btn-press transition-all duration-200 uppercase tracking-tight flex items-center justify-center gap-3">
+                <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB.%20Masih%20ada%20stok%3F" target="_blank" class="relative block w-full bg-red-600 text-white font-black text-2xl md:text-3xl py-5 rounded-xl border-4 border-black brutal-shadow btn-press transition-all duration-200 uppercase tracking-tight flex items-center justify-center gap-3">
                     🔥 AMANKAN SEKARANG
                 </a>
             </div>
@@ -168,15 +192,19 @@
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">1</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0">
-                    <img src="3.png" alt="Kaos Distro" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/3.png" alt="Kaos Distro" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Kaos Sablon</h3>
                 <p class="text-sm text-gray-600 font-bold mb-4">Item wajib anak tongkrongan</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Cotton Combed 30s</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Sablon Plastisol Awet</li>
                     </ul>
+                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
+                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
+                        <span class="text-lg font-black text-gray-500 line-through">Rp 100.000</span>
+                    </div>
                 </div>
             </div>
             
@@ -185,15 +213,19 @@
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">2</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0">
-                    <img src="5.png" alt="Underwear" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/5.png" alt="Underwear" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Underwear Pria</h3>
                 <p class="text-sm text-gray-600 font-bold mb-4">Nyaman dipakai seharian</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Bahan Katun Spandex</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Anti-Lembab & Bau</li>
                     </ul>
+                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
+                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
+                        <span class="text-lg font-black text-gray-500 line-through">Rp 30.000</span>
+                    </div>
                 </div>
             </div>
 
@@ -203,41 +235,102 @@
                 <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-lg font-black w-10 h-10 flex items-center justify-center rounded-full border-2 border-black z-10">3</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0 relative">
-                    <img src="img1.jpeg" alt="Kaca Mata" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/img1.jpeg" alt="Kaca Mata" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Kaca Mata</h3>
                 <p class="text-sm text-gray-600 font-bold mb-4">Item style untuk ke pantai</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Kualitas Bahan Kuat</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Lensa Anti Silau</li>
                     </ul>
+                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
+                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
+                        <span class="text-lg font-black text-gray-500 line-through">Rp 35.000</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Item 4 & 5 -->
             <div class="bg-gray-50 rounded-2xl border-4 border-black p-5 text-center hover:-translate-y-2 transition-transform duration-300 brutal-shadow relative flex flex-col bg-gradient-to-br from-gray-50 to-gray-200 animate-on-scroll" style="animation-delay: 300ms;">
-                <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-sm font-black px-3 py-1 rounded-full border-2 border-black z-10">4</span>
+                <span class="absolute top-3 left-3 bg-glomed-yellow text-black text-sm font-black px-3 py-1 rounded-full border-2 border-black z-10">4 & 5</span>
                 
                 <div class="aspect-square bg-white rounded-xl mb-5 overflow-hidden border-2 border-gray-200 shrink-0 relative flex justify-center items-center">
-                    <img src="4.png" alt="Topi + Item Kejutan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
+                    <img src="images/4.png" alt="Topi + Item Kejutan" class="w-full h-full object-cover hover:scale-110 transition duration-500">
                 </div>
                 <h3 class="font-black text-2xl uppercase mb-1">Topi + Aksesoris</h3>
                 <p class="text-sm text-gray-600 font-bold mb-4">Item kejutan pelengkap outfit</p>
                 <div class="mt-auto text-left border-t-2 border-dashed border-gray-300 pt-4">
-                    <ul class="text-sm text-gray-800 font-bold space-y-2">
+                    <ul class="text-sm text-gray-800 font-bold space-y-2 mb-5">
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Kualitas Distro Original</li>
                         <li><i class="fas fa-fire text-red-500 mr-2"></i> Plus item misteri keren!</li>
                     </ul>
+                    <div class="bg-gray-200 border-2 border-gray-300 rounded-xl p-2 text-center">
+                        <span class="text-[10px] text-gray-500 font-black uppercase tracking-widest block">Senilai</span>
+                        <span class="text-lg font-black text-gray-500 line-through">Rp 35.000</span>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-16 text-center">
-            <a href="#order-section" class="inline-block bg-black text-glomed-yellow font-black text-2xl px-12 py-5 rounded-xl border-4 border-glomed-yellow hover:bg-gray-900 brutal-shadow btn-press transition-all duration-200 uppercase w-full md:w-auto">
-                <span class="animate-pulse inline-block">🛒</span> SIKAT SEKARANG JUGA!
-            </a>
-            <p class="mt-4 text-sm font-bold text-gray-500 italic">Stok tinggal sedikit! Jangan nyesel kalau kehabisan!</p>
+        <!-- SUMMARY HARGA (NEW RECEIPT/BRUTALIST STYLE) -->
+        <div class="mt-24 max-w-3xl mx-auto px-2 animate-on-scroll">
+            <div class="bg-white border-8 border-black p-6 md:p-10 rounded-3xl brutal-shadow relative">
+                <!-- Receipt Header -->
+                <div class="absolute -top-7 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-2 md:px-8 md:py-3 rounded-full font-black text-lg md:text-2xl uppercase tracking-widest border-4 border-glomed-yellow whitespace-nowrap brutal-shadow-white shadow-xl">
+                    RINCIAN HARGA ASLI
+                </div>
+                
+                <!-- Breakdown List -->
+                <div class="mt-8 space-y-4 font-bold text-base md:text-xl text-gray-700">
+                    <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kaos Sablon</span>
+                        <span class="text-gray-500 font-black tracking-wide">Rp 100.000</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Underwear</span>
+                        <span class="text-gray-500 font-black tracking-wide">Rp 30.000</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Kacamata</span>
+                        <span class="text-gray-500 font-black tracking-wide">Rp 35.000</span>
+                    </div>
+                    <div class="flex justify-between items-center border-b-2 border-dashed border-gray-300 pb-3">
+                        <span class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3 text-xl"></i> Topi + Aksesoris</span>
+                        <span class="text-gray-500 font-black tracking-wide">Rp 35.000</span>
+                    </div>
+                    
+                    <!-- Total Harga Asli -->
+                    <div class="flex justify-between items-center pt-4 mt-4 bg-gray-100 p-4 md:p-6 rounded-xl border-2 border-gray-300 shadow-inner">
+                        <span class="font-black text-xl md:text-2xl text-black">TOTAL 5 ITEM:</span>
+                        <span class="font-black text-3xl md:text-4xl text-red-600 line-through decoration-black decoration-4 drop-shadow-sm">Rp 200.000</span>
+                    </div>
+                </div>
+
+                <!-- Final Offer Box (The Hook) -->
+                <div class="mt-10 bg-glomed-yellow border-4 border-black p-6 md:p-8 rounded-2xl transform -rotate-2 brutal-shadow text-center relative overflow-hidden group">
+                    <div class="absolute inset-0 bg-white/20" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);"></div>
+                    
+                    <div class="relative z-10">
+                        <p class="text-xs md:text-lg font-black uppercase tracking-widest text-black mb-2 bg-white inline-block px-4 py-1.5 border-2 border-black rounded-full transform rotate-2 shadow-sm">
+                            DENGAN BUNDLING INI CUKUP BAYAR:
+                        </p>
+                        <div class="text-6xl md:text-8xl font-black text-red-600 drop-shadow-[4px_4px_0_rgba(0,0,0,1)] tracking-tighter my-4 group-hover:scale-110 transition-transform duration-300">
+                            Rp 150<span class="text-4xl md:text-6xl">.000</span>
+                        </div>
+                        <p class="bg-black text-glomed-yellow inline-block px-4 md:px-6 py-2 rounded-xl text-sm md:text-2xl font-black uppercase animate-pulse border-2 border-white brutal-shadow-white mt-2">
+                            🔥 FREE ONGKIR & BISA COD! 🔥
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- CTA -->
+                <div class="mt-12 text-center">
+                    <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB.%20Masih%20ada%20stok%3F" target="_blank" class="inline-block w-full bg-black text-white font-black text-xl md:text-2xl px-6 py-5 rounded-xl border-4 border-black hover:bg-gray-800 brutal-shadow btn-press transition-all duration-200 uppercase tracking-wide">
+                        <span class="animate-bounce inline-block mr-2 text-2xl">🛒</span> AMBIL PROMONYA SEKARANG!
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -283,7 +376,7 @@
             </div>
             
             <div class="text-center mt-10">
-                <a href="#order-section" class="inline-block bg-glomed-yellow text-black font-black text-xl md:text-2xl px-12 py-5 rounded-xl border-4 border-white hover:bg-yellow-400 brutal-shadow-white btn-press-white transition-all duration-200 uppercase">
+                <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB.%20Masih%20ada%20stok%3F" target="_blank" class="inline-block bg-glomed-yellow text-black font-black text-xl md:text-2xl px-12 py-5 rounded-xl border-4 border-white hover:bg-yellow-400 brutal-shadow-white btn-press-white transition-all duration-200 uppercase">
                     ORDER SEKARANG ⚡
                 </a>
             </div>
@@ -304,15 +397,23 @@
                 </span>
             </div>
             
-            <h2 class="text-3xl md:text-4xl font-black text-gray-500 mb-2 mt-6 uppercase">Harga Normal: <span class="line-through decoration-red-600 decoration-4">Rp 350.000</span></h2>
-            <p class="text-xl md:text-3xl font-black text-black mb-4 uppercase">Khusus Buat Lo Yang Order SEKARANG:</p>
+            <h2 class="text-3xl md:text-4xl font-black text-gray-500 mb-2 mt-6 uppercase">Harga Normal: <span class="line-through decoration-red-600 decoration-4">Rp 200.000</span></h2>
+            <p class="text-xl md:text-3xl font-black text-black mb-6 uppercase">Khusus Buat Lo Yang Order SEKARANG:</p>
             
-            <div class="text-7xl md:text-9xl font-black text-red-600 mb-6 drop-shadow-[4px_4px_0_rgba(0,0,0,1)] tracking-tighter">
-                <span class="text-4xl md:text-6xl align-top text-black">Rp</span>150<span class="text-4xl md:text-6xl text-black">.000</span>
+            <!-- PERBAIKAN SHADOW HARGA -->
+            <div class="flex justify-center items-start mb-8">
+                <span class="text-4xl md:text-6xl font-black text-black mt-2 md:mt-4">Rp</span>
+                <span class="text-[5.5rem] md:text-[9rem] font-black text-red-600 leading-none mx-1 md:mx-2" style="text-shadow: 6px 6px 0px #000;">150</span>
+                <span class="text-4xl md:text-6xl font-black text-black self-end mb-2 md:mb-4">.000</span>
             </div>
             
-            <div class="bg-black text-glomed-yellow font-black text-2xl md:text-4xl py-3 px-6 inline-block rounded-xl border-4 border-black transform -rotate-2 mb-10 brutal-shadow-red uppercase">
-                + FREE ONGKIR SELURUH INDONESIA! 🚚
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 mb-10">
+                <div class="bg-black text-glomed-yellow font-black text-xl md:text-3xl py-3 px-6 rounded-xl border-4 border-black transform -rotate-2 brutal-shadow-red uppercase">
+                    + FREE ONGKIR! 🚚
+                </div>
+                <div class="bg-[#25D366] text-white font-black text-xl md:text-3xl py-3 px-6 rounded-xl border-4 border-black transform rotate-2 brutal-shadow uppercase animate-pulse">
+                    🤝 BISA COD!
+                </div>
             </div>
             
             <!-- Urgency Elements -->
@@ -331,20 +432,20 @@
                 
                 <!-- Countdown 2 Hours -->
                 <p class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Promo Berakhir Dalam:</p>
-                <div class="flex justify-center items-center space-x-3 text-4xl md:text-6xl font-black text-black" id="countdown-timer">
-                    <div class="bg-black text-white px-4 py-3 rounded-xl min-w-[80px] border-b-4 border-gray-700 shadow-inner flex flex-col items-center">
-                        <span id="hours">01</span>
-                        <span class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">Jam</span>
+                <div class="flex justify-center items-center gap-1 sm:gap-2 md:gap-3 font-black text-black" id="countdown-timer">
+                    <div class="bg-black text-white px-2 py-2 md:px-4 md:py-3 rounded-xl min-w-[65px] sm:min-w-[80px] border-b-4 border-gray-700 shadow-inner flex flex-col items-center">
+                        <span id="hours" class="text-3xl sm:text-4xl md:text-6xl">01</span>
+                        <span class="text-[10px] md:text-xs text-gray-400 mt-1 uppercase tracking-wider md:tracking-widest font-bold">Jam</span>
                     </div>
-                    <span class="text-4xl md:text-6xl mb-6 animate-pulse">:</span>
-                    <div class="bg-black text-white px-4 py-3 rounded-xl min-w-[80px] border-b-4 border-gray-700 shadow-inner flex flex-col items-center">
-                        <span id="minutes">59</span>
-                        <span class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">Menit</span>
+                    <span class="text-3xl sm:text-4xl md:text-6xl animate-pulse transform -translate-y-2 md:-translate-y-3">:</span>
+                    <div class="bg-black text-white px-2 py-2 md:px-4 md:py-3 rounded-xl min-w-[65px] sm:min-w-[80px] border-b-4 border-gray-700 shadow-inner flex flex-col items-center">
+                        <span id="minutes" class="text-3xl sm:text-4xl md:text-6xl">59</span>
+                        <span class="text-[10px] md:text-xs text-gray-400 mt-1 uppercase tracking-wider md:tracking-widest font-bold">Menit</span>
                     </div>
-                    <span class="text-4xl md:text-6xl mb-6 animate-pulse">:</span>
-                    <div class="bg-black text-white px-4 py-3 rounded-xl min-w-[80px] border-b-4 border-red-600 shadow-inner flex flex-col items-center">
-                        <span id="seconds" class="text-red-500">30</span>
-                        <span class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">Detik</span>
+                    <span class="text-3xl sm:text-4xl md:text-6xl animate-pulse transform -translate-y-2 md:-translate-y-3">:</span>
+                    <div class="bg-black text-white px-2 py-2 md:px-4 md:py-3 rounded-xl min-w-[65px] sm:min-w-[80px] border-b-4 border-red-600 shadow-inner flex flex-col items-center">
+                        <span id="seconds" class="text-3xl sm:text-4xl md:text-6xl text-red-500">30</span>
+                        <span class="text-[10px] md:text-xs text-gray-400 mt-1 uppercase tracking-wider md:tracking-widest font-bold">Detik</span>
                     </div>
                 </div>
             </div>
@@ -364,61 +465,114 @@
                 KATA MEREKA YANG <br>
                 <span class="text-white bg-red-600 px-4 py-1 mt-2 transform -skew-x-6 inline-block border-4 border-black brutal-shadow">SUDAH BUKTIIN!</span>
             </h2>
-            <p class="text-gray-600 font-bold text-xl mt-6">Jangan cuma dengerin dari kita, baca sendiri review brutal dari brother kita!</p>
+            <p class="text-gray-600 font-bold text-xl mt-6">Jangan cuma dengerin dari kita, baca sendiri <span class="bg-glomed-yellow px-1">chat WhatsApp aseli</span> dari brother kita yang udah order!</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-8">
-            <!-- Testimonial 1 -->
-            <div class="bg-white p-8 rounded-2xl border-4 border-black brutal-shadow hover:-translate-y-2 transition relative pt-12 animate-on-scroll">
-                <div class="absolute -top-8 left-8 w-16 h-16 bg-blue-500 text-white rounded-full border-4 border-black flex items-center justify-center text-3xl font-black">
-                    A
-                </div>
-                <div class="text-glomed-yellow mb-4 text-2xl drop-shadow-md">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-800 text-lg font-bold italic mb-6">"Murah banget anjir 😭 dapet banyak banget, awalnya kirain boong barang abal2 ternyata real pic! Bahannya adem parah bos."</p>
-                <div class="flex items-center justify-between border-t-2 border-gray-200 pt-4">
-                    <div>
-                        <p class="font-black text-xl text-black">Andi</p>
-                        <p class="text-sm text-gray-500 font-bold">📍 Jakarta Selatan</p>
+            <!-- WA Testi 1 -->
+            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm">
+                <!-- WA Header -->
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
+                        <img src="https://ui-avatars.com/api/?name=Andi&background=random" alt="Andi" class="w-full h-full object-cover">
                     </div>
-                    <span class="text-xs text-green-600 font-black bg-green-100 px-2 py-1 rounded border border-green-600"><i class="fas fa-check-circle"></i> Verified</span>
+                    <div>
+                        <p class="font-bold text-sm leading-none">Andi - Jakarta</p>
+                        <p class="text-[10px] text-gray-200 mt-1">Online</p>
+                    </div>
+                </div>
+                <!-- WA Body -->
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                    <div class="text-center mb-2">
+                        <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Hari Ini</span>
+                    </div>
+                    <!-- Buyer Message -->
+                    <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
+                        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&h=300&fit=crop" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Paket Kaos">
+                        <p class="text-gray-800 font-semibold">Min paket udah mendarat! Murah banget anjir 😭 dapet banyak banget, awalnya kirain boong ternyata real pic!</p>
+                        <div class="text-right mt-1">
+                            <span class="text-[10px] text-gray-400">14:02</span>
+                        </div>
+                    </div>
+                    <!-- Admin Reply -->
+                    <div class="self-end bg-[#DCF8C6] p-2 pb-1 rounded-lg rounded-tr-none max-w-[85%] relative shadow-md border border-green-200 mt-2">
+                        <p class="text-gray-800 font-semibold">Wah mantap kak Andi! Makasih udah order ya, bahannya adem kan? 🔥</p>
+                        <div class="text-right mt-1 flex items-center justify-end gap-1">
+                            <span class="text-[10px] text-gray-500">14:05</span>
+                            <i class="fas fa-check-double text-blue-500 text-[10px]"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Testimonial 2 -->
-            <div class="bg-white p-8 rounded-2xl border-4 border-black brutal-shadow hover:-translate-y-2 transition relative pt-12 animate-on-scroll" style="animation-delay: 150ms;">
-                <div class="absolute -top-8 left-8 w-16 h-16 bg-red-600 text-white rounded-full border-4 border-black flex items-center justify-center text-3xl font-black">
-                    B
-                </div>
-                <div class="text-glomed-yellow mb-4 text-2xl drop-shadow-md">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-800 text-lg font-bold italic mb-6">"Sumpah ini rugi bandar wkwk, kaosnya tebel sablonan rapih banget. Boxer nya jg enak dipake harian. Worth it parah!!"</p>
-                <div class="flex items-center justify-between border-t-2 border-gray-200 pt-4">
-                    <div>
-                        <p class="font-black text-xl text-black">Bima Putra</p>
-                        <p class="text-sm text-gray-500 font-bold">📍 Bandung</p>
+            <!-- WA Testi 2 -->
+            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 150ms;">
+                <!-- WA Header -->
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
+                        <img src="https://ui-avatars.com/api/?name=Bima+Putra&background=random" alt="Bima" class="w-full h-full object-cover">
                     </div>
-                    <span class="text-xs text-green-600 font-black bg-green-100 px-2 py-1 rounded border border-green-600"><i class="fas fa-check-circle"></i> Verified</span>
+                    <div>
+                        <p class="font-bold text-sm leading-none">Bima Putra - Bdg</p>
+                        <p class="text-[10px] text-gray-200 mt-1">Online</p>
+                    </div>
+                </div>
+                <!-- WA Body -->
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                    <div class="text-center mb-2">
+                        <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Kemarin</span>
+                    </div>
+                    <!-- Buyer Message -->
+                    <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
+                        <p class="text-gray-800 font-semibold">Bro sumpah ini rugi bandar wkwk, kaosnya tebel sablonan rapih banget. Boxer nya jg enak dipake harian. Worth it parah!!</p>
+                        <div class="text-right mt-1">
+                            <span class="text-[10px] text-gray-400">18:30</span>
+                        </div>
+                    </div>
+                    <!-- Admin Reply -->
+                    <div class="self-end bg-[#DCF8C6] p-2 pb-1 rounded-lg rounded-tr-none max-w-[85%] relative shadow-md border border-green-200 mt-2">
+                        <p class="text-gray-800 font-semibold">Siap laksanakan bro Bima! Ditunggu next ordernya mumpung promo belum abis nih ⚡</p>
+                        <div class="text-right mt-1 flex items-center justify-end gap-1">
+                            <span class="text-[10px] text-gray-500">18:35</span>
+                            <i class="fas fa-check-double text-blue-500 text-[10px]"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Testimonial 3 -->
-            <div class="bg-white p-8 rounded-2xl border-4 border-black brutal-shadow hover:-translate-y-2 transition relative pt-12 animate-on-scroll" style="animation-delay: 300ms;">
-                <div class="absolute -top-8 left-8 w-16 h-16 bg-glomed-yellow text-black rounded-full border-4 border-black flex items-center justify-center text-3xl font-black">
-                    D
-                </div>
-                <div class="text-glomed-yellow mb-4 text-2xl drop-shadow-md">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p class="text-gray-800 text-lg font-bold italic mb-6">"Paket mendarat aman bro, pengiriman gercep. Kacamata sama topinya ngeri beut dah bikin PD naik 1000% 🔥 Next order lagi!"</p>
-                <div class="flex items-center justify-between border-t-2 border-gray-200 pt-4">
-                    <div>
-                        <p class="font-black text-xl text-black">Dimas</p>
-                        <p class="text-sm text-gray-500 font-bold">📍 Surabaya</p>
+            <!-- WA Testi 3 -->
+            <div class="bg-[#E5DDD5] rounded-2xl border-4 border-black brutal-shadow overflow-hidden flex flex-col hover:-translate-y-2 transition duration-300 animate-on-scroll mx-auto w-full max-w-sm" style="animation-delay: 300ms;">
+                <!-- WA Header -->
+                <div class="bg-[#075E54] text-white px-4 py-3 flex items-center gap-3 shadow-md z-10">
+                    <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center overflow-hidden shrink-0 border-2 border-white">
+                        <img src="https://ui-avatars.com/api/?name=Dimas&background=random" alt="Dimas" class="w-full h-full object-cover">
                     </div>
-                    <span class="text-xs text-green-600 font-black bg-green-100 px-2 py-1 rounded border border-green-600"><i class="fas fa-check-circle"></i> Verified</span>
+                    <div>
+                        <p class="font-bold text-sm leading-none">Dimas - Surabaya</p>
+                        <p class="text-[10px] text-gray-200 mt-1">Online</p>
+                    </div>
+                </div>
+                <!-- WA Body -->
+                <div class="p-4 flex flex-col gap-3 text-sm font-medium h-full bg-[url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg')] bg-cover bg-center bg-blend-soft-light" style="background-color: rgba(229, 221, 213, 0.85);">
+                    <div class="text-center mb-2">
+                        <span class="bg-[#D4EAF4] text-gray-600 text-[10px] font-bold px-2 py-1 rounded-md shadow-sm">Hari Ini</span>
+                    </div>
+                    <!-- Buyer Message -->
+                    <div class="self-start bg-white p-2 pb-1 rounded-lg rounded-tl-none max-w-[85%] relative shadow-md border border-gray-200">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=300&fit=crop" class="w-full h-32 object-cover rounded mb-2 border border-gray-100" alt="Paket Kacamata">
+                        <p class="text-gray-800 font-semibold">Paket mendarat aman bro, pengiriman gercep. Kacamata sama topinya ngeri beut dah bikin PD naik 1000% 🔥</p>
+                        <div class="text-right mt-1">
+                            <span class="text-[10px] text-gray-400">09:15</span>
+                        </div>
+                    </div>
+                    <!-- Admin Reply -->
+                    <div class="self-end bg-[#DCF8C6] p-2 pb-1 rounded-lg rounded-tr-none max-w-[85%] relative shadow-md border border-green-200 mt-2">
+                        <p class="text-gray-800 font-semibold">Gasss terus bro! Auto ganteng maksimal dipake nongkrong 😎</p>
+                        <div class="text-right mt-1 flex items-center justify-end gap-1">
+                            <span class="text-[10px] text-gray-500">09:17</span>
+                            <i class="fas fa-check-double text-blue-500 text-[10px]"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -432,10 +586,10 @@
             <h2 class="text-5xl md:text-7xl font-black text-white uppercase mb-6 leading-none">
                 JANGAN SAMPAI <br><span class="text-red-600 bg-white px-4 inline-block transform -rotate-2 mt-4 border-4 border-red-600">MENYESAL!</span>
             </h2>
-            <p class="text-2xl text-gray-300 mb-12 font-bold uppercase tracking-wide">Tutup halaman ini = Promo <span class="text-red-500 line-through">150RB</span> Hangus. <br>Besok balik harga <span class="text-glomed-yellow">350RB!</span></p>
+            <p class="text-2xl text-gray-300 mb-12 font-bold uppercase tracking-wide">Tutup halaman ini = Promo <span class="text-red-500 line-through">150RB</span> Hangus. <br>Besok balik harga <span class="text-glomed-yellow">200RB!</span></p>
             
             <!-- PERBAIKAN 2: Mengganti inline-block menjadi flex dan menambahkan mx-auto -->
-            <a href="https://wa.me/628990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB" target="_blank" class="flex w-full max-w-2xl mx-auto bg-glomed-yellow text-black font-black text-3xl md:text-5xl py-8 rounded-2xl border-8 border-white brutal-shadow-white hover:bg-white hover:text-red-600 btn-press-white transition-all duration-300 shadow-2xl animate-pulse flex-col items-center justify-center gap-2 text-center">
+            <a href="https://wa.me/08990765544?text=Halo%20Admin%20Glomed%2C%20saya%20mau%20pesan%20Promo%20Bundling%20150RB" target="_blank" class="flex w-full max-w-2xl mx-auto bg-glomed-yellow text-black font-black text-3xl md:text-5xl py-8 rounded-2xl border-8 border-white brutal-shadow-white hover:bg-white hover:text-red-600 btn-press-white transition-all duration-300 shadow-2xl animate-pulse flex-col items-center justify-center gap-2 text-center">
                 <span class="flex items-center justify-center"><i class="fab fa-whatsapp text-5xl mr-4"></i> KLIK DI SINI!</span>
                 <span class="text-lg md:text-2xl mt-2 tracking-widest font-bold text-gray-800">JANGAN SAMPAI KEHABISAN</span>
             </a>
@@ -449,28 +603,79 @@
         </div>
     </footer>
 
+    <!-- FAKE NOTIFICATION POPUP MELAYANG DI BAWAH (SOCIAL PROOF) -->
+    <div id="fake-notif" class="fixed bottom-20 md:bottom-24 left-4 md:left-6 z-40 bg-white border-2 border-black brutal-shadow rounded-xl p-3 flex items-center gap-3 opacity-0 pointer-events-none max-w-[280px] sm:max-w-xs transition-all">
+        <div class="w-10 h-10 bg-glomed-yellow border-2 border-black rounded-full flex items-center justify-center text-black font-black shrink-0 shadow-inner">
+            <i class="fas fa-shopping-bag"></i>
+        </div>
+        <div>
+            <p id="notif-name" class="font-black text-sm text-black leading-tight">Denny</p>
+            <p id="notif-action" class="text-xs text-gray-600 font-bold leading-tight mt-0.5">sedang membeli produk ini</p>
+            <p class="text-[10px] text-gray-400 mt-1"><i class="fas fa-check-circle text-green-500 mr-1"></i> Terverifikasi</p>
+        </div>
+    </div>
+
     <!-- Scripts for Logic & Animations -->
     <script>
-        // 1. Fake Live Viewer Counter
+        // 1. Fake Viewer Counter (Untuk Hero Section)
         const viewerEl = document.getElementById('live-viewers');
-        let currentViewers = 23;
+        let currentViewers = 33;
         setInterval(() => {
-            const change = Math.floor(Math.random() * 5) - 2; // -2 to +2
+            const change = Math.floor(Math.random() * 5) - 2; 
             currentViewers += change;
-            if (currentViewers < 12) currentViewers = 12 + Math.floor(Math.random() * 5); // Base minimum
-            if (currentViewers > 45) currentViewers = 45 - Math.floor(Math.random() * 5); // Max cap
+            if (currentViewers < 15) currentViewers = 15 + Math.floor(Math.random() * 5); 
+            if (currentViewers > 55) currentViewers = 55 - Math.floor(Math.random() * 5); 
             viewerEl.innerText = currentViewers;
             
-            // Add tiny pulse effect when number changes
+            // Pulse effect
             viewerEl.classList.remove('text-glomed-yellow', 'scale-100');
             viewerEl.classList.add('text-white', 'scale-125', 'transition-all');
             setTimeout(() => {
                 viewerEl.classList.remove('text-white', 'scale-125', 'transition-all');
                 viewerEl.classList.add('text-glomed-yellow', 'scale-100');
             }, 300);
-        }, 4000);
+        }, 3500);
 
-        // 2. Countdown Timer (2 Hours Format)
+        // 2. Fake Order / Popup Social Proof (Melayang di Bawah Kiri)
+        const names = ["Denny", "Sabrina", "Andi", "Bima", "Rizky", "Siti", "Ayu", "Dimas", "Budi", "Reza", "Putri", "Bayu", "Rina", "Dika"];
+        const cities = ["Jakarta", "Bandung", "Surabaya", "Medan", "Bali", "Semarang", "Makassar", "Yogyakarta", "Malang"];
+        const actions = [
+            "sedang melihat produk ini 👀", 
+            "baru saja membeli Promo Bundling 🔥", 
+            "sedang checkout pesanan 🛒", 
+            "menambahkan ke keranjang 🛍️"
+        ];
+        
+        const notifEl = document.getElementById('fake-notif');
+        const notifNameEl = document.getElementById('notif-name');
+        const notifActionEl = document.getElementById('notif-action');
+        
+        const showNotification = () => {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            
+            notifNameEl.innerText = `${name} - ${city}`;
+            notifActionEl.innerText = action;
+            
+            notifEl.classList.remove('popup-leave', 'opacity-0');
+            notifEl.classList.add('popup-enter');
+            
+            setTimeout(() => {
+                notifEl.classList.remove('popup-enter');
+                notifEl.classList.add('popup-leave');
+            }, 4000);
+        };
+
+        // Mulai popup setelah 2 detik, lalu ulang acak antara 6-10 detik
+        setTimeout(() => {
+            showNotification();
+            setInterval(() => {
+                showNotification();
+            }, 6000 + Math.random() * 4000);
+        }, 2000);
+
+        // 3. Countdown Timer (2 Hours Format)
         // 1 hour, 59 mins, 30 secs
         let timerSeconds = (1 * 3600) + (59 * 60) + 30; 
         const hoursEl = document.getElementById('hours');
