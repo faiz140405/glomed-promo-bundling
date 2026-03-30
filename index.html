@@ -4,54 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promo Paket Lengkap Pria - Glomed & Co</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Roboto for high readability (Standard for FB/Android users) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Preconnect & Font Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <!-- Tailwind & Icons (Async for Performance) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Roboto', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
                     colors: {
                         brand: {
-                            blue: '#1e3a8a',      // Trust Blue (Navy)
-                            red: '#dc2626',       // Promo Red
-                            yellow: '#facc15',    // Attention Yellow
-                            green: '#25D366',     // WA Green
-                            light: '#f8fafc',     // Very light gray for background
+                            blue: '#1e3a8a', red: '#dc2626', yellow: '#facc15',
+                            green: '#25D366', light: '#f8fafc',
                         }
-                    },
-                    boxShadow: {
-                        'solid': '4px 4px 0px 0px rgba(0,0,0,0.1)',
                     }
                 }
             }
         }
     </script>
+    
     <style>
-        /* Animasi berat hanya aktif di layar tablet & desktop (min-width: 768px) untuk menjaga skor SEO Mobile */
+        /* CSS Kritis untuk LCP & Layout Stability */
+        body { font-family: 'Roboto', sans-serif; }
+        .timer-display { min-height: 3rem; } /* Prevent jumpy text */
+        
         @media (min-width: 768px) {
-            .wa-button {
-                animation: pulse-green 2s infinite;
-            }
+            .wa-button { animation: pulse-green 2s infinite; }
         }
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+        /* Mobile Performance: Disable heavy animations on low-end devices */
+        @media (prefers-reduced-motion: reduce) {
+            .md\:animate-pulse, .md\:animate-bounce { animation: none !important; }
+        }
     </style>
 </head>
-<body class="bg-brand-light text-gray-800 font-sans antialiased overflow-x-hidden">
+<body class="bg-brand-light text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- FAKE NOTIFIKASI BAWAH KIRI (Simple & Clear) -->
-    <div id="fake-notification" class="fixed bottom-4 left-4 z-50 bg-white border-l-4 border-brand-green rounded shadow-lg p-3 flex items-center space-x-3 transition-all duration-500 transform translate-y-32 opacity-0 max-w-xs border border-gray-200">
+    <!-- FAKE NOTIFIKASI -->
+    <div id="fake-notification" class="fixed bottom-4 left-4 z-50 bg-white border-l-4 border-brand-green rounded shadow-lg p-3 flex items-center space-x-3 transition-all duration-500 transform translate-y-32 opacity-0 max-w-xs border border-gray-200" aria-live="polite">
         <div class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-brand-green">
             <i class="fas fa-check-circle text-xl"></i>
         </div>
@@ -63,36 +64,26 @@
         </div>
     </div>
 
-    <!-- 1. HERO SECTION (Clear, High Contrast, Direct Benefit) -->
+    <!-- 1. HERO SECTION -->
     <header class="bg-white relative pt-6 pb-12 px-4 border-b-4 border-brand-red shadow-sm">
         <div class="max-w-3xl mx-auto text-center">
-            
-            <!-- Logo/Brand simple text -->
             <p class="font-bold text-gray-500 tracking-widest text-sm mb-4">GLOMED & CO.</p>
-
-            <!-- Urgency Badge (Animasi hanya di desktop) -->
             <div class="inline-block bg-brand-red text-white font-bold px-4 py-1.5 rounded text-sm md:text-base mb-6 md:animate-pulse">
                 <i class="fas fa-clock mr-1"></i> PROMO BERAKHIR HARI INI
             </div>
-            
-            <!-- Direct Headline -->
             <h1 class="text-3xl md:text-5xl font-black text-brand-blue leading-tight mb-4">
                 PAKET KOMPLIT PRIA DEWASA<br>
                 <span class="text-brand-red">BAYAR RP 150.000, DAPAT 5 BARANG!</span>
             </h1>
-
             <p class="text-lg md:text-xl text-gray-600 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
-                Tampil rapi, keren, dan elegan tanpa harus mahal. Kualitas premium standar distro, awet dipakai bertahun-tahun. <br>
+                Tampil rapi, keren, dan elegan tanpa harus mahal. Kualitas premium standar distro, awet dipakai bertahun-tahun.<br>
                 <span class="inline-block mt-3 bg-brand-yellow text-gray-900 px-4 py-1.5 rounded-full font-bold text-sm md:text-base border border-gray-900 shadow-sm">
                     🎁 PLUS GRATIS BONUS STICKER EKSKLUSIF!
                 </span>
             </p>
-            
-            <!-- HUGE COD BANNER (Very important for FB 30+) -->
             <div class="bg-brand-yellow border-2 border-dashed border-gray-800 p-4 rounded-lg mb-8 inline-block transform rotate-1">
                 <p class="text-xl md:text-2xl font-black text-gray-900 uppercase">
-                    <i class="fas fa-hand-holding-usd text-brand-green text-3xl mr-2 align-middle"></i> 
-                    AMAN! BISA BAYAR DI TEMPAT (COD)
+                    <i class="fas fa-hand-holding-usd text-brand-green text-3xl mr-2 align-middle"></i> AMAN! BISA BAYAR DI TEMPAT (COD)
                 </p>
                 <div class="mt-3 bg-white px-4 py-2 rounded border border-gray-300 shadow-sm inline-block">
                     <p class="text-brand-red font-black text-lg md:text-xl uppercase">
@@ -100,145 +91,107 @@
                     </p>
                 </div>
             </div>
-            
-            <!-- Hero CTA -->
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
                 <a href="#order-section" class="w-full sm:w-auto bg-brand-green text-white font-bold text-xl px-8 py-4 rounded-lg shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2 wa-button">
                     <i class="fab fa-whatsapp text-2xl"></i> LIHAT ISI PAKETNYA DI SINI
                 </a>
-                <a href="https://wa.me/628990765544?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Paket%20Promo%20150RB%2C%20tapi%20mau%20tanya-tanya%20dulu%20sebelum%20order..." target="_blank" class="w-full sm:w-auto border-2 border-brand-green text-brand-green bg-white font-bold text-lg px-6 py-3.5 rounded-lg shadow-sm hover:bg-green-50 transition-colors flex items-center justify-center gap-2">
+                <a href="https://wa.me/628990765544?text=Halo%20Admin%2C%20saya%20tertarik..." target="_blank" class="w-full sm:w-auto border-2 border-brand-green text-brand-green bg-white font-bold text-lg px-6 py-3.5 rounded-lg shadow-sm hover:bg-green-50 transition-colors flex items-center justify-center gap-2">
                     <i class="fas fa-comments"></i> Tanya Admin (WA)
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- 2. SECTION ISI PAKET (Big Images, Clear Benefits) -->
+    <!-- 2. SECTION ISI PAKET -->
     <section class="py-16 px-4 max-w-6xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-2 border-b-4 border-brand-red inline-block pb-2">
-                APA SAJA YANG ANDA DAPATKAN?
-            </h2>
-            <p class="text-gray-600 mt-4 text-lg">Hanya dengan <strong class="text-brand-red">Rp 150.000</strong>, Anda langsung membawa pulang <strong class="text-gray-900">5 BARANG</strong> ini:</p>
+            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-2 border-b-4 border-brand-red inline-block pb-2">APA SAJA YANG ANDA DAPATKAN?</h2>
+            <p class="text-gray-600 mt-4 text-lg">Hanya dengan <strong class="text-brand-red">Rp 150.000</strong>, Anda langsung membawa pulang <strong>5 BARANG</strong> ini:</p>
         </div>
-
-        <!-- Grid Items -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-            
-            <!-- Item 1 -->
+            <!-- Item 1-5 (Diberi width/height attribute untuk optimasi CLS) -->
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-1</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/kaos sablon.jpg" loading="lazy" alt="Kaos Pria" class="w-full h-full object-cover">
+                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
+                    <img src="images/kaos sablon.jpg" width="300" height="300" loading="lazy" alt="Kaos Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Kaos Sablon Premium</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun tebal, adem, menyerap keringat. Sablon awet tidak mudah pecah.</p>
+                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun tebal, adem, menyerap keringat.</p>
                 <p class="text-xs md:text-sm text-gray-400 line-through">Normal: Rp 100.000</p>
             </div>
             
-            <!-- Item 2 -->
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-2</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/underwear.jpg" loading="lazy" alt="Celana Dalam Pria" class="w-full h-full object-cover">
+                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
+                    <img src="images/underwear.jpg" width="300" height="300" loading="lazy" alt="Celana Dalam" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Celana Dalam Pria</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun spandek melar & nyaman. Karet pinggang tidak bikin berbekas di perut.</p>
+                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun spandek melar & nyaman.</p>
                 <p class="text-xs md:text-sm text-gray-400 line-through">Normal: Rp 30.000</p>
             </div>
 
-            <!-- Item 3 -->
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-3</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/kacamata.jpg" loading="lazy" alt="Kacamata Pria" class="w-full h-full object-cover">
+                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
+                    <img src="images/kacamata.jpg" width="300" height="300" loading="lazy" alt="Kacamata" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Kacamata Hitam Pria</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Cocok untuk berkendara motor. Lensa anti-silau matahari dan frame kokoh.</p>
+                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Lensa anti-silau matahari dan frame kokoh.</p>
                 <p class="text-xs md:text-sm text-gray-400 line-through">Normal: Rp 35.000</p>
             </div>
 
-            <!-- Item 4 -->
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-4</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/topi.jpg" loading="lazy" alt="Topi Pria" class="w-full h-full object-cover">
+                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
+                    <img src="images/topi.jpg" width="300" height="300" loading="lazy" alt="Topi Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Topi Kanvas Awet</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan kanvas kuat untuk luar ruangan. Ukuran kepala bisa dibesar-kecilkan.</p>
+                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan kanvas kuat untuk luar ruangan.</p>
                 <p class="text-xs md:text-sm text-gray-400 line-through">Normal: Rp 35.000</p>
             </div>
 
-            <!-- Item 5 (BONUS STICKER) -->
-            <div class="bg-brand-light rounded-lg p-4 shadow-md border-2 border-brand-yellow text-center relative flex flex-col w-full">
-                <!-- Animasi dibatasi hanya desktop untuk meringankan load mobile -->
+            <div class="bg-brand-light rounded-lg p-4 shadow-md border-2 border-brand-yellow text-center relative flex flex-col">
                 <div class="absolute -top-3 -right-3 bg-brand-red text-white font-black text-xs px-2 py-1 rounded shadow-md transform rotate-12 md:animate-pulse">SPESIAL!</div>
-                
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">
-                    BARANG KE-5
+                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-5</div>
+                <div class="aspect-square bg-gray-200 rounded mb-4 overflow-hidden border border-gray-300">
+                    <img src="images/stiker.jpg" width="300" height="300" loading="lazy" alt="Bonus Sticker" class="w-full h-full object-cover">
                 </div>
-            
-                <div class="aspect-square bg-gray-200 rounded mb-4 overflow-hidden border border-gray-300 shrink-0 flex items-center justify-center relative">
-                    <img src="images/stiker.jpg" loading="lazy" alt="Bonus Sticker" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply">
-                </div>
-            
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Sticker Pack Distro</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">
-                    Sticker vinyl keren anti-air. Bikin tampilan helm, motor, atau laptop makin kece badai.
-                </p>
-            
-                <p class="text-xs md:text-sm text-brand-green font-bold uppercase">
-                    <i class="fas fa-gift mr-1"></i> GRATIS (BONUS)
-                </p>
+                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Sticker vinyl keren anti-air.</p>
+                <p class="text-xs md:text-sm text-brand-green font-bold uppercase"><i class="fas fa-gift mr-1"></i> GRATIS (BONUS)</p>
             </div>
-            
         </div>
     </section>
 
-    <!-- 3. KEUNTUNGAN BELANJA DISINI (Trust Building) -->
+    <!-- 3. KEUNTUNGAN BELANJA -->
     <section class="bg-brand-blue py-16 px-4 text-white">
         <div class="max-w-5xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-black text-center mb-10">MENGAPA ANDA HARUS PESAN SEKARANG?</h2>
-            
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Point 1 -->
                 <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
+                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
                     <h3 class="font-bold text-xl mb-2">100% Bebas Penipuan</h3>
-                    <p class="text-gray-200">Tidak perlu transfer duluan. Anda pesan sekarang, barang kami kirim. Bayar langsung ke kurir saat barang sudah di tangan Anda.</p>
+                    <p class="text-gray-200">Tidak perlu transfer duluan. Bayar langsung ke kurir saat barang sudah di tangan Anda.</p>
                 </div>
-
-                <!-- Point 2 -->
                 <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4">
-                        <i class="fas fa-piggy-bank"></i>
-                    </div>
+                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-piggy-bank"></i></div>
                     <h3 class="font-bold text-xl mb-2">Sangat Menghemat Uang</h3>
-                    <p class="text-gray-200">Jika beli di toko biasa, 5 barang ini bisa habis Rp 200.000 lebih. Di sini, Anda cukup bayar Rp 150.000 saja. Sisa uang bisa untuk kebutuhan lain.</p>
+                    <p class="text-gray-200">Beli di toko biasa habis Rp 200.000 lebih. Di sini, Anda cukup bayar Rp 150.000 saja.</p>
                 </div>
-
-                <!-- Point 3 -->
                 <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4">
-                        <i class="fas fa-truck"></i>
-                    </div>
+                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-truck"></i></div>
                     <h3 class="font-bold text-xl mb-2">Gratis Ongkos Kirim</h3>
-                    <p class="text-gray-200">Tidak perlu pusing memikirkan biaya ongkir yang mahal. Kami yang tanggung biaya pengirimannya (syarat & ketentuan berlaku).</p>
+                    <p class="text-gray-200">Tidak perlu pusing memikirkan biaya ongkir. Kami yang tanggung biaya pengirimannya.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. PRICE & URGENCY (Clear CTA for FB Ads) -->
+    <!-- 4. PRICE & ORDER FORM -->
     <section class="py-16 px-4" id="order-section">
         <div class="max-w-3xl mx-auto">
-            
-            <div class="bg-white rounded-xl p-6 md:p-10 shadow-xl border-t-8 border-brand-red text-center relative">
-                
+            <div class="bg-white rounded-xl p-6 md:p-10 shadow-xl border-t-8 border-brand-red text-center">
                 <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-6">RINCIAN HARGA PROMO</h2>
-                
                 <div class="bg-gray-50 border border-gray-200 rounded p-4 mb-6 inline-block w-full max-w-sm">
                     <div class="flex justify-between items-center text-gray-500 mb-2">
                         <span>Total Harga Normal:</span>
@@ -248,368 +201,132 @@
                         <span class="text-gray-800">Harga Promo Hari Ini:</span>
                         <span class="text-brand-red text-2xl">Rp 150.000</span>
                     </div>
-                    <div class="border-t border-gray-300 pt-3 text-sm md:text-base font-bold text-brand-green flex flex-col gap-2 text-left">
+                    <div class="border-t border-gray-300 pt-3 text-sm font-bold text-brand-green flex flex-col gap-2 text-left">
                         <span><i class="fas fa-check-circle mr-2"></i> BISA BAYAR DI TEMPAT (COD)</span>
-                        <span><i class="fas fa-check-circle mr-2"></i> GRATIS ONGKOS KIRIM (FREE ONGKIR)</span>
-                        <span class="text-brand-red md:animate-pulse"><i class="fas fa-gift mr-2"></i> + GRATIS BONUS STICKER PACK</span>
+                        <span><i class="fas fa-check-circle mr-2"></i> GRATIS ONGKOS KIRIM</span>
+                        <span class="text-brand-red"><i class="fas fa-gift mr-2"></i> + GRATIS BONUS STICKER PACK</span>
                     </div>
                 </div>
                 
-                <!-- Urgency (Simple progress) -->
                 <div class="mb-8">
-                    <p class="text-brand-red font-bold text-lg mb-2">
-                        <i class="fas fa-exclamation-triangle"></i> PERHATIAN: Stok Tersisa 17 Paket Lagi!
-                    </p>
+                    <p class="text-brand-red font-bold text-lg mb-2"><i class="fas fa-exclamation-triangle"></i> Stok Tersisa 17 Paket Lagi!</p>
                     <div class="w-full max-w-sm mx-auto bg-gray-200 rounded-full h-4 mb-2">
                         <div class="bg-brand-red h-4 rounded-full w-[85%]"></div>
                     </div>
-                    <p class="text-sm text-gray-500">Promo otomatis ditutup jika stok habis.</p>
                 </div>
 
-                <!-- PANDUAN UKURAN (SIZE CHART) -->
-                <div class="bg-white border border-gray-200 rounded-xl p-5 md:p-6 mb-6 shadow-sm overflow-hidden">
-                    <h3 class="font-bold text-gray-800 text-lg border-b-2 border-gray-100 pb-2 mb-4 text-left">
-                        <i class="fas fa-ruler-combined text-brand-blue mr-2"></i> PANDUAN UKURAN KAOS
-                    </h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-sm md:text-base text-center border-collapse border border-gray-200">
-                            <thead class="bg-brand-blue text-white">
-                                <tr>
-                                    <th class="px-4 py-2 border border-gray-300">SIZE</th>
-                                    <th class="px-4 py-2 border border-gray-300">PANJANG</th>
-                                    <th class="px-4 py-2 border border-gray-300">LEBAR</th>
-                                </tr>
-                            </thead>
-                            <tbody class="font-medium text-gray-700">
-                                <tr class="bg-white hover:bg-gray-50">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">XS</td>
-                                    <td class="px-4 py-2 border border-gray-200">61 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">44 CM</td>
-                                </tr>
-                                <tr class="bg-gray-50 hover:bg-gray-100">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">S</td>
-                                    <td class="px-4 py-2 border border-gray-200">68 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">50 CM</td>
-                                </tr>
-                                <tr class="bg-white hover:bg-gray-50">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">M</td>
-                                    <td class="px-4 py-2 border border-gray-200">70 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">52 CM</td>
-                                </tr>
-                                <tr class="bg-gray-50 hover:bg-gray-100">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">L</td>
-                                    <td class="px-4 py-2 border border-gray-200">72 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">54 CM</td>
-                                </tr>
-                                <tr class="bg-white hover:bg-gray-50">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">XL</td>
-                                    <td class="px-4 py-2 border border-gray-200">75 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">57 CM</td>
-                                </tr>
-                                <tr class="bg-gray-50 hover:bg-gray-100">
-                                    <td class="px-4 py-2 border border-gray-200 font-bold text-gray-900">XXL</td>
-                                    <td class="px-4 py-2 border border-gray-200">77 CM</td>
-                                    <td class="px-4 py-2 border border-gray-200">59 CM</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p class="text-xs text-gray-500 mt-2 text-left">* Toleransi ukuran 1-2 cm karena proses jahitan pabrik.</p>
-                </div>
-
-                <!-- FORM ORDER -->
                 <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 md:p-6 text-left mb-4 shadow-sm">
-                    <h3 class="font-bold text-brand-blue text-xl border-b-2 border-gray-200 pb-3 mb-5">
-                        <i class="fas fa-edit mr-2"></i> ISI DATA PENGIRIMAN
-                    </h3>
+                    <h3 class="font-bold text-brand-blue text-xl border-b-2 border-gray-200 pb-3 mb-5"><i class="fas fa-edit mr-2"></i> ISI DATA PENGIRIMAN</h3>
                     <form id="orderForm">
-                        
-                        <!-- Nama -->
                         <div class="mb-4">
                             <label for="nama" class="block text-sm font-bold text-gray-700 mb-1">Nama Lengkap *</label>
-                            <input type="text" id="nama" required placeholder="Contoh: Budi Santoso" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue bg-white">
+                            <input type="text" id="nama" required placeholder="Contoh: Budi Santoso" class="w-full border border-gray-300 rounded-lg p-3 bg-white">
                         </div>
-
-                        <!-- No WhatsApp -->
                         <div class="mb-4">
                             <label for="whatsapp" class="block text-sm font-bold text-gray-700 mb-1">No. WhatsApp *</label>
-                            <input type="tel" id="whatsapp" required placeholder="Contoh: 08123456789" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue bg-white">
-                            <p class="text-xs text-gray-500 mt-1">Pastikan nomor aktif agar kurir mudah menghubungi Anda.</p>
+                            <input type="tel" id="whatsapp" required placeholder="Contoh: 08123456789" class="w-full border border-gray-300 rounded-lg p-3 bg-white">
                         </div>
-
-                        <!-- Size & Jumlah (Grid) -->
                         <div class="grid grid-cols-2 gap-4 mb-4">
                             <div>
-                                <label for="size" class="block text-sm font-bold text-gray-700 mb-1">Ukuran Kaos *</label>
-                                <select id="size" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue bg-white appearance-none">
+                                <label for="size" class="block text-sm font-bold text-gray-700 mb-1">Size Kaos *</label>
+                                <select id="size" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
                                     <option value="" disabled selected>Pilih Size</option>
-                                    <option value="XS">Extra Small (XS)</option>
-                                    <option value="S">Small (S)</option>
                                     <option value="M">Medium (M)</option>
                                     <option value="L">Large (L)</option>
                                     <option value="XL">Extra Large (XL)</option>
-                                    <option value="XXL">Jumbo (XXL)</option>
                                 </select>
                             </div>
                             <div>
-                                <label for="jumlah" class="block text-sm font-bold text-gray-700 mb-1">Jumlah Paket *</label>
-                                <select id="jumlah" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue bg-white appearance-none">
-                                    <option value="1">1 Paket (Rp 150rb)</option>
-                                    <option value="2">2 Paket (Rp 300rb)</option>
-                                    <option value="3">3 Paket (Rp 450rb)</option>
+                                <label for="jumlah" class="block text-sm font-bold text-gray-700 mb-1">Jumlah *</label>
+                                <select id="jumlah" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                                    <option value="1">1 Paket</option>
+                                    <option value="2">2 Paket</option>
                                 </select>
                             </div>
                         </div>
-
-                        <!-- Jenis Pembayaran -->
                         <div class="mb-4">
-                            <label for="pembayaran" class="block text-sm font-bold text-gray-700 mb-1">Jenis Pembayaran *</label>
-                            <select id="pembayaran" required class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue bg-white appearance-none">
-                                <option value="" disabled selected>Pilih Metode Pembayaran</option>
-                                <option value="Transfer">Transfer Bank</option>
+                            <label for="pembayaran" class="block text-sm font-bold text-gray-700 mb-1">Pembayaran *</label>
+                            <select id="pembayaran" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
                                 <option value="COD">Bayar di Tempat (COD)</option>
+                                <option value="Transfer">Transfer Bank</option>
                             </select>
                         </div>
-
-                        <!-- Alamat -->
                         <div class="mb-6">
                             <label for="alamat" class="block text-sm font-bold text-gray-700 mb-1">Alamat Lengkap *</label>
-                            <textarea id="alamat" required rows="3" placeholder="Nama Jalan, RT/RW, Desa/Kelurahan, Kecamatan, Kota/Kabupaten, Provinsi (Sertakan patokan rumah jika ada)" class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue bg-white"></textarea>
+                            <textarea id="alamat" required rows="3" placeholder="Alamat lengkap pengiriman..." class="w-full border border-gray-300 rounded-lg p-3 bg-white"></textarea>
                         </div>
-
-                        <!-- Submit Button -->
-                        <button type="submit" class="block w-full bg-brand-green text-white font-bold text-xl py-5 rounded-lg shadow-lg hover:bg-green-600 transition-colors wa-button border-b-4 border-green-700 uppercase">
-                            <i class="fab fa-whatsapp text-3xl mr-2 align-middle"></i> PESAN SEKARANG (WA)
+                        <button type="submit" class="block w-full bg-brand-green text-white font-bold text-xl py-5 rounded-lg shadow-lg hover:bg-green-600 transition-colors wa-button uppercase">
+                            <i class="fab fa-whatsapp text-3xl mr-2 align-middle"></i> PESAN SEKARANG
                         </button>
-                        
-                        <!-- Secondary Button (Tanya Tanya) -->
-                        <a href="https://wa.me/628990765544?text=Halo%20Admin%2C%20saya%20tertarik%20dengan%20Paket%20Promo%20150RB%2C%20tapi%20mau%20tanya-tanya%20dulu%20sebelum%20order..." target="_blank" class="block w-full mt-3 border-2 border-brand-green text-brand-green bg-white font-bold text-lg py-3 rounded-lg hover:bg-green-50 transition-colors text-center">
-                            <i class="fas fa-comments text-xl mr-2 align-middle"></i> Masih Ragu? Tanya via WhatsApp
-                        </a>
-
                     </form>
                 </div>
-                
-                <p class="mt-4 text-sm font-medium text-gray-500">
-                    <i class="fas fa-lock text-gray-400 mr-1"></i> Data Anda 100% aman. Klik tombol di atas untuk langsung terhubung ke WhatsApp kami.
-                </p>
             </div>
         </div>
     </section>
 
-    <!-- 5. TESTIMONI (Real Photos focus) -->
+    <!-- 5. TESTIMONI & BONUS SECTION -->
     <section class="py-16 px-4 bg-gray-100 border-t border-gray-200">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-2">KATA MEREKA YANG SUDAH BELI</h2>
-                <p class="text-gray-600">Alhamdulillah, ratusan paket sudah sampai di rumah pelanggan kami dengan aman.</p>
-            </div>
-
-            <!-- Grid Items: 4 Kolom -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
-                    <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-1.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
-                        <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
-                            <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 1
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
-                    <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-2.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
-                        <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
-                            <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 2
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
-                    <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-3.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
-                        <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
-                            <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 3
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
-                    <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-4.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
-                        <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
-                            <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 4
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-10">
-                <a href="#order-section" class="inline-block bg-brand-blue text-white font-bold px-8 py-3 rounded hover:bg-blue-800 transition">
-                    Ya, Saya Mau Pesan Sekarang
-                </a>
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-10">KATA MEREKA YANG SUDAH BELI</h2>
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-1.jpeg" width="200" height="200" loading="lazy" alt="Testi 1" class="w-full rounded"></div>
+                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-2.jpeg" width="200" height="200" loading="lazy" alt="Testi 2" class="w-full rounded"></div>
+                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-3.jpeg" width="200" height="200" loading="lazy" alt="Testi 3" class="w-full rounded"></div>
+                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-4.jpeg" width="200" height="200" loading="lazy" alt="Testi 4" class="w-full rounded"></div>
             </div>
         </div>
     </section>
 
-    <!-- 5.5 SECTION KEJUTAN BONUS -->
-    <section class="py-16 px-4 bg-brand-red border-t-8 border-brand-yellow relative">
+    <section class="py-16 px-4 bg-brand-red border-t-8 border-brand-yellow">
         <div class="max-w-3xl mx-auto text-center">
-            
-            <div class="bg-white rounded-2xl px-5 pt-10 pb-6 md:p-10 shadow-2xl relative transform md:hover:scale-[1.02] transition-transform duration-300 border-4 border-black">
-                
-                <!-- Badge Eitss (Animasi di batasi untuk mobile) -->
-                <div class="absolute -top-5 md:-top-6 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-4 md:px-6 py-1.5 md:py-2 rounded-full uppercase tracking-widest border-4 border-brand-yellow w-max max-w-[92%] text-sm md:text-base text-center leading-tight md:animate-bounce shadow-lg">
-                    EITSS, TUNGGU DULU! 🛑
+            <div class="bg-white rounded-2xl px-5 py-10 shadow-2xl relative border-4 border-black">
+                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-6 py-2 rounded-full uppercase border-4 border-brand-yellow w-max text-sm">EITSS, TUNGGU DULU! 🛑</div>
+                <h3 class="text-2xl md:text-4xl font-black text-brand-red uppercase mb-4 leading-tight">DAPATKAN TAMBAHAN BONUS KAOS KAKI! 🧦</h3>
+                <div class="aspect-video bg-gray-100 rounded-xl mb-6 overflow-hidden max-w-md mx-auto">
+                    <img src="images/kaoskaki.jpg" width="400" height="225" loading="lazy" alt="Bonus Kaos Kaki" class="w-full h-full object-cover">
                 </div>
-
-                <h2 class="text-xl md:text-2xl font-bold text-gray-800 mt-2 md:mt-4 mb-2">
-                    Eitss... Buat Anda yang checkout <span class="text-brand-red font-black underline decoration-4 underline-offset-4">SEKARANG JUGA</span> sebelum waktu di bawah habis...
-                </h2>
-                
-                <h3 class="text-2xl md:text-4xl font-black text-brand-red uppercase mb-4 leading-tight">
-                    DAPATKAN TAMBAHAN BONUS KAOS KAKI KEREN! 🧦
-                </h3>
-
-                <!-- Bonus Image -->
-                <div class="aspect-video bg-gray-100 rounded-xl mb-6 overflow-hidden border-2 border-dashed border-gray-400 relative max-w-md mx-auto">
-                    <div class="absolute top-2 left-2 bg-brand-green text-white text-xs font-black px-3 py-1 rounded shadow z-10 uppercase tracking-wide">ITEM KE-6 (GRATIS)</div>
-                    <img src="images/kaoskaki.jpg" loading="lazy" alt="Bonus Kaos Kaki" class="w-full h-full object-cover mix-blend-multiply" onerror="this.src='https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&q=80&w=600'">
-                </div>
-
-                <p class="text-base md:text-lg font-medium text-gray-700 mb-6">
-                    Bonus tambahan kaos kaki premium ini siap bikin penampilan kamu makin <em class="font-black text-brand-blue">WAH</em> dan maksimal dari ujung kepala sampai kaki! <br>
-                    <span class="inline-block mt-3 bg-brand-yellow px-3 py-1 rounded font-black text-gray-900 border border-gray-800 text-sm md:text-base">
-                        TOTAL DAPAT 5 + 1 BARANG CUMA 150 RIBU! MURAH KEBANGETAN!
-                    </span>
-                </p>
-
-                <!-- Fake Countdown Timer -->
                 <div class="bg-red-50 border-2 border-brand-red rounded-xl p-4 mb-6 max-w-sm mx-auto">
-                    <p class="text-brand-red font-black uppercase text-sm mb-1"><i class="fas fa-hourglass-half md:animate-pulse mr-1"></i> Waktu Klaim Bonus Berakhir:</p>
-                    <div class="text-4xl md:text-5xl font-black text-brand-red tracking-widest font-mono timer-display drop-shadow-sm">
-                        00:15:00
-                    </div>
+                    <p class="text-brand-red font-black text-sm mb-1">Waktu Klaim Bonus Berakhir:</p>
+                    <div class="text-4xl font-black text-brand-red timer-display">00:15:00</div>
                 </div>
-
-                <!-- CTWA Button -->
-                <a href="https://wa.me/628990765544?text=Saya%20mau%20paket%20bundling%20ini%20%2B%20bonus%20kaos%20kakinya" target="_blank" class="w-full sm:w-auto border-2 border-brand-green text-brand-green bg-white font-bold text-lg px-6 py-3.5 rounded-lg shadow-sm hover:bg-green-50 transition-colors flex items-center justify-center gap-2">
+                <a href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" class="inline-flex items-center gap-2 border-2 border-brand-green text-brand-green font-bold px-8 py-3 rounded-lg">
                     <i class="fas fa-comments"></i> Tanya Admin (WA)
                 </a>
-                <p class="text-xs text-gray-500 font-bold mt-3">*Klik tombol di atas untuk mengisi form order dan mengamankan bonus Anda</p>
-                
             </div>
         </div>
     </section>
 
-    <!-- 6. FOOTER -->
-    <footer class="bg-gray-800 text-center py-8 px-4 text-gray-400">
-        <div class="max-w-3xl mx-auto">
-            <h3 class="text-white font-bold text-lg mb-2">Punya Pertanyaan?</h3>
-            <p class="mb-6 text-sm">Jangan ragu untuk menghubungi customer service kami via WhatsApp. Kami siap melayani Anda dengan sepenuh hati.</p>
-            <p class="text-xs">© 2026 Glomed & Co. Hak Cipta Dilindungi.</p>
-        </div>
+    <footer class="bg-gray-800 text-center py-8 text-gray-400">
+        <p class="text-sm">© 2026 Glomed & Co. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- Scripts -->
-    <script>
-        // Form Order Auto Redirect to WA
+    <!-- Optimized Scripts -->
+    <script defer>
+        // Form & Notification logic (Combined & Minified-style)
         document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Mencegah reload halaman
-            
-            // Ambil data dari form
-            const nama = document.getElementById('nama').value.trim();
-            let wa = document.getElementById('whatsapp').value.trim();
-            const size = document.getElementById('size').value;
-            const jumlah = document.getElementById('jumlah').value;
-            const pembayaran = document.getElementById('pembayaran').value;
-            const alamat = document.getElementById('alamat').value.trim();
-            
-            // Format ulang nomor WA (Jika berawalan 0 atau +62, ubah format ke standar wa.me)
-            if (wa.startsWith('0')) {
-                wa = '62' + wa.substring(1);
-            } else if (wa.startsWith('+')) {
-                wa = wa.substring(1);
-            }
-            
-            // Nomor WA Admin (Ganti dengan nomor tujuan Anda)
-            const adminWA = '628990765544'; 
-            
-            // Teks penutup berdasarkan metode pembayaran
-            const infoTambahan = pembayaran === 'COD' 
-                ? 'Mohon diproses untuk pengiriman sistem COD / Bayar di Tempat ya kak.' 
-                : 'Mohon info nomor rekening untuk pembayarannya ya kak.';
-            
-            // Format Pesan (Updated with Bonus Kaos Kaki)
-            const pesan = `Halo Admin, saya sudah isi form order Promo Bundling:\n\n` +
-                          `*Nama:* ${nama}\n` +
-                          `*No WA:* ${wa}\n` +
-                          `*Paket:* ${jumlah} item (+ Bonus Sticker & Kaos Kaki)\n` +
-                          `*Size Kaos:* ${size}\n` +
-                          `*Pembayaran:* ${pembayaran}\n` +
-                          `*Alamat:* ${alamat}\n\n` +
-                          `${infoTambahan} Terima kasih!`;
-            
-            // Redirect ke WhatsApp
-            const waLink = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
-            window.open(waLink, '_blank');
+            e.preventDefault();
+            const n = document.getElementById('nama').value, w = document.getElementById('whatsapp').value, 
+                  s = document.getElementById('size').value, j = document.getElementById('jumlah').value,
+                  p = document.getElementById('pembayaran').value, a = document.getElementById('alamat').value;
+            const msg = `Halo Admin, order Paket Bundling:\nNama: ${n}\nWA: ${w}\nSize: ${s}\nJumlah: ${j}\nBayar: ${p}\nAlamat: ${a}`;
+            window.open(`https://wa.me/628990765544?text=${encodeURIComponent(msg)}`, '_blank');
         });
 
-        // Fake Order Notification (Local Indonesian Names for Trust)
-        const names = ["Agus", "Eko", "Rudi", "Hendra", "Budi", "Dwi", "Iwan", "Joko", "Fajar", "Rizky"];
-        const cities = ["Jakarta", "Surabaya", "Bandung", "Medan", "Semarang", "Makassar", "Palembang", "Yogyakarta", "Malang", "Balikpapan"];
-        
-        const notifEl = document.getElementById('fake-notification');
-        const notifNameEl = document.getElementById('notify-name');
-        const notifCityEl = document.getElementById('notify-city');
-        
-        const showNotification = () => {
-            const name = names[Math.floor(Math.random() * names.length)];
-            const city = cities[Math.floor(Math.random() * cities.length)];
-            
-            notifNameEl.innerText = name;
-            notifCityEl.innerText = city;
-            
-            notifEl.classList.remove('translate-y-32', 'opacity-0');
-            notifEl.classList.add('translate-y-0', 'opacity-100');
-            
-            setTimeout(() => {
-                notifEl.classList.remove('translate-y-0', 'opacity-100');
-                notifEl.classList.add('translate-y-32', 'opacity-0');
-            }, 5000);
-        };
+        const names = ["Agus", "Rudi", "Budi", "Hendra"], cities = ["Jakarta", "Bandung", "Surabaya"];
+        setInterval(() => {
+            const notif = document.getElementById('fake-notification');
+            document.getElementById('notify-name').innerText = names[Math.floor(Math.random()*names.length)];
+            document.getElementById('notify-city').innerText = cities[Math.floor(Math.random()*cities.length)];
+            notif.classList.toggle('translate-y-32'); notif.classList.toggle('opacity-0');
+            setTimeout(() => { notif.classList.add('translate-y-32', 'opacity-0'); }, 5000);
+        }, 15000);
 
-        setTimeout(() => {
-            showNotification();
-            setInterval(() => {
-                showNotification();
-            }, 12000 + Math.random() * 8000); // Less frequent, so it's not annoying
-        }, 3000);
-
-        // Countdown Timer Logic (15 Minutes for urgency)
-        let timeInSeconds = 15 * 60; 
-        const timerDisplays = document.querySelectorAll('.timer-display');
-
-        function updateTimer() {
-            const h = Math.floor(timeInSeconds / 3600);
-            const m = Math.floor((timeInSeconds % 3600) / 60);
-            const s = timeInSeconds % 60;
-            
-            const displayStr = 
-                String(h).padStart(2, '0') + ':' + 
-                String(m).padStart(2, '0') + ':' + 
-                String(s).padStart(2, '0');
-
-            timerDisplays.forEach(display => {
-                display.innerText = displayStr;
-            });
-
-            if (timeInSeconds > 0) timeInSeconds--;
-            else timeInSeconds = 15 * 60; // Reset
-        }
-        setInterval(updateTimer, 1000);
-        updateTimer();
+        let time = 900;
+        setInterval(() => {
+            if(time > 0) time--;
+            const m = Math.floor(time/60), s = time%60;
+            document.querySelectorAll('.timer-display').forEach(d => d.innerText = `00:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`);
+        }, 1000);
     </script>
 </body>
 </html>
