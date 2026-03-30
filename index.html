@@ -10,8 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <script>
         tailwind.config = {
@@ -31,15 +29,17 @@
                     },
                     boxShadow: {
                         'solid': '4px 4px 0px 0px rgba(0,0,0,0.1)',
-                        'solid-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
                     }
                 }
             }
         }
     </script>
     <style>
-        .wa-button {
-            animation: pulse-green 2s infinite;
+        /* Animasi berat hanya aktif di layar tablet & desktop (min-width: 768px) untuk menjaga skor SEO Mobile */
+        @media (min-width: 768px) {
+            .wa-button {
+                animation: pulse-green 2s infinite;
+            }
         }
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
@@ -70,8 +70,8 @@
             <!-- Logo/Brand simple text -->
             <p class="font-bold text-gray-500 tracking-widest text-sm mb-4">GLOMED & CO.</p>
 
-            <!-- Urgency Badge -->
-            <div class="inline-block bg-brand-red text-white font-bold px-4 py-1.5 rounded text-sm md:text-base mb-6 animate-pulse">
+            <!-- Urgency Badge (Animasi hanya di desktop) -->
+            <div class="inline-block bg-brand-red text-white font-bold px-4 py-1.5 rounded text-sm md:text-base mb-6 md:animate-pulse">
                 <i class="fas fa-clock mr-1"></i> PROMO BERAKHIR HARI INI
             </div>
             
@@ -129,7 +129,7 @@
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-1</div>
                 <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/kaos sablon.jpg" loading="Lazy" alt="Kaos Pria" class="w-full h-full object-cover">
+                    <img src="images/kaos sablon.jpg" loading="lazy" alt="Kaos Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Kaos Sablon Premium</h3>
                 <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun tebal, adem, menyerap keringat. Sablon awet tidak mudah pecah.</p>
@@ -140,7 +140,7 @@
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-2</div>
                 <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/underwear.jpg" loading="Lazy" alt="Celana Dalam Pria" class="w-full h-full object-cover">
+                    <img src="images/underwear.jpg" loading="lazy" alt="Celana Dalam Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Celana Dalam Pria</h3>
                 <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun spandek melar & nyaman. Karet pinggang tidak bikin berbekas di perut.</p>
@@ -151,7 +151,7 @@
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-3</div>
                 <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/kacamata.jpg" loading="Lazy" alt="Kacamata Pria" class="w-full h-full object-cover">
+                    <img src="images/kacamata.jpg" loading="lazy" alt="Kacamata Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Kacamata Hitam Pria</h3>
                 <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Cocok untuk berkendara motor. Lensa anti-silau matahari dan frame kokoh.</p>
@@ -162,7 +162,7 @@
             <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-4</div>
                 <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200 shrink-0">
-                    <img src="images/topi.jpg" loading="Lazy" alt="Topi Pria" class="w-full h-full object-cover">
+                    <img src="images/topi.jpg" loading="lazy" alt="Topi Pria" class="w-full h-full object-cover">
                 </div>
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Topi Kanvas Awet</h3>
                 <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan kanvas kuat untuk luar ruangan. Ukuran kepala bisa dibesar-kecilkan.</p>
@@ -171,14 +171,15 @@
 
             <!-- Item 5 (BONUS STICKER) -->
             <div class="bg-brand-light rounded-lg p-4 shadow-md border-2 border-brand-yellow text-center relative flex flex-col w-full">
-                <div class="absolute -top-3 -right-3 bg-brand-red text-white font-black text-xs px-2 py-1 rounded shadow-md transform rotate-12 animate-pulse">SPESIAL!</div>
+                <!-- Animasi dibatasi hanya desktop untuk meringankan load mobile -->
+                <div class="absolute -top-3 -right-3 bg-brand-red text-white font-black text-xs px-2 py-1 rounded shadow-md transform rotate-12 md:animate-pulse">SPESIAL!</div>
                 
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">
                     BARANG KE-5
                 </div>
             
                 <div class="aspect-square bg-gray-200 rounded mb-4 overflow-hidden border border-gray-300 shrink-0 flex items-center justify-center relative">
-                    <img src="images/stiker.jpg" loading="Lazy" alt="Bonus Sticker" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply">
+                    <img src="images/stiker.jpg" loading="lazy" alt="Bonus Sticker" class="absolute inset-0 w-full h-full object-cover mix-blend-multiply">
                 </div>
             
                 <h3 class="font-bold text-lg text-gray-800 mb-2">Sticker Pack Distro</h3>
@@ -250,7 +251,7 @@
                     <div class="border-t border-gray-300 pt-3 text-sm md:text-base font-bold text-brand-green flex flex-col gap-2 text-left">
                         <span><i class="fas fa-check-circle mr-2"></i> BISA BAYAR DI TEMPAT (COD)</span>
                         <span><i class="fas fa-check-circle mr-2"></i> GRATIS ONGKOS KIRIM (FREE ONGKIR)</span>
-                        <span class="text-brand-red animate-pulse"><i class="fas fa-gift mr-2"></i> + GRATIS BONUS STICKER PACK</span>
+                        <span class="text-brand-red md:animate-pulse"><i class="fas fa-gift mr-2"></i> + GRATIS BONUS STICKER PACK</span>
                     </div>
                 </div>
                 
@@ -409,7 +410,7 @@
                 
                 <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
                     <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-1.jpeg" loading="Lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
+                        <img src="images/ulasan-1.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
                         <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
                             <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 1
                         </div>
@@ -418,7 +419,7 @@
 
                 <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
                     <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-2.jpeg" loading="Lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
+                        <img src="images/ulasan-2.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
                         <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
                             <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 2
                         </div>
@@ -427,7 +428,7 @@
 
                 <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
                     <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-3.jpeg" loading="Lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
+                        <img src="images/ulasan-3.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
                         <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
                             <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 3
                         </div>
@@ -436,7 +437,7 @@
 
                 <div class="bg-white p-2 rounded shadow border border-gray-200 h-fit">
                     <div class="w-full bg-gray-200 rounded overflow-hidden">
-                        <img src="images/ulasan-4.jpeg" loading="Lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
+                        <img src="images/ulasan-4.jpeg" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="Bukti Sampai" class="w-full h-auto block">
                         <div class="min-h-[200px] w-full flex-col items-center justify-center text-center px-4 text-gray-500 text-sm font-medium" style="display: none;">
                             <i class="fas fa-camera text-2xl mb-2 text-gray-400"></i><br>Foto Paket Sampai 4
                         </div>
@@ -458,8 +459,8 @@
             
             <div class="bg-white rounded-2xl px-5 pt-10 pb-6 md:p-10 shadow-2xl relative transform md:hover:scale-[1.02] transition-transform duration-300 border-4 border-black">
                 
-                <!-- Badge Eitss -->
-                <div class="absolute -top-5 md:-top-6 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-4 md:px-6 py-1.5 md:py-2 rounded-full uppercase tracking-widest border-4 border-brand-yellow w-max max-w-[92%] text-sm md:text-base text-center leading-tight animate-bounce shadow-lg">
+                <!-- Badge Eitss (Animasi di batasi untuk mobile) -->
+                <div class="absolute -top-5 md:-top-6 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-4 md:px-6 py-1.5 md:py-2 rounded-full uppercase tracking-widest border-4 border-brand-yellow w-max max-w-[92%] text-sm md:text-base text-center leading-tight md:animate-bounce shadow-lg">
                     EITSS, TUNGGU DULU! 🛑
                 </div>
 
@@ -474,7 +475,7 @@
                 <!-- Bonus Image -->
                 <div class="aspect-video bg-gray-100 rounded-xl mb-6 overflow-hidden border-2 border-dashed border-gray-400 relative max-w-md mx-auto">
                     <div class="absolute top-2 left-2 bg-brand-green text-white text-xs font-black px-3 py-1 rounded shadow z-10 uppercase tracking-wide">ITEM KE-6 (GRATIS)</div>
-                    <img src="images/kaoskaki.jpg" loading="Lazy" alt="Bonus Kaos Kaki" class="w-full h-full object-cover mix-blend-multiply" onerror="this.src='https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&q=80&w=600'">
+                    <img src="images/kaoskaki.jpg" loading="lazy" alt="Bonus Kaos Kaki" class="w-full h-full object-cover mix-blend-multiply" onerror="this.src='https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&q=80&w=600'">
                 </div>
 
                 <p class="text-base md:text-lg font-medium text-gray-700 mb-6">
@@ -486,7 +487,7 @@
 
                 <!-- Fake Countdown Timer -->
                 <div class="bg-red-50 border-2 border-brand-red rounded-xl p-4 mb-6 max-w-sm mx-auto">
-                    <p class="text-brand-red font-black uppercase text-sm mb-1"><i class="fas fa-hourglass-half animate-pulse mr-1"></i> Waktu Klaim Bonus Berakhir:</p>
+                    <p class="text-brand-red font-black uppercase text-sm mb-1"><i class="fas fa-hourglass-half md:animate-pulse mr-1"></i> Waktu Klaim Bonus Berakhir:</p>
                     <div class="text-4xl md:text-5xl font-black text-brand-red tracking-widest font-mono timer-display drop-shadow-sm">
                         00:15:00
                     </div>
