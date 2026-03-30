@@ -6,95 +6,219 @@
     <meta name="description" content="Promo Paket Komplit Pria Dewasa. Bayar Rp 150.000 dapat 5 barang kualitas premium distro. Bisa COD dan Gratis Ongkir!">
     <title>Promo Paket Lengkap Pria - Glomed & Co</title>
     
-    <!-- 1. Preconnect ke resource vital -->
+    <!-- Resource Hints untuk Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-
-    <!-- 2. Async Loading untuk Fonts & Icons (Mencegah Render-Blocking) -->
+    
+    <!-- Async Loading untuk Fonts & Icons -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" media="print" onload="this.media='all'">
     
     <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
-    <!-- 3. Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Roboto', 'sans-serif'] },
-                    colors: { brand: { blue: '#1e3a8a', red: '#dc2626', yellow: '#facc15', green: '#25D366', light: '#f8fafc' } }
-                }
-            }
-        }
-    </script>
-    
-    <!-- 4. CSS Kritis & Optimasi Rendering -->
+    <!-- CSS Murni (Pengganti Tailwind) -->
     <style>
-        body { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; }
-        
-        /* MAGIC TRICK: Meminta browser TIDAK merender section bawah sampai di-scroll */
-        .cv-auto { content-visibility: auto; contain-intrinsic-size: 800px; }
-        
-        .timer-display { min-height: 40px; font-variant-numeric: tabular-nums; }
-        
-        @media (min-width: 768px) {
-            .wa-button { animation: pulse-green 2s infinite; }
+        /* Variabel Warna & Tema */
+        :root {
+            --brand-blue: #1e3a8a;
+            --brand-red: #dc2626;
+            --brand-yellow: #facc15;
+            --brand-green: #25D366;
+            --brand-light: #f8fafc;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
         }
+
+        /* Reset Dasar */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-family: 'Roboto', sans-serif; scroll-behavior: smooth; line-height: 1.5; -webkit-text-size-adjust: 100%; }
+        body { background-color: var(--brand-light); color: var(--gray-800); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        img { display: block; max-width: 100%; height: auto; }
+        a { text-decoration: none; color: inherit; }
+        input, select, textarea, button { font-family: inherit; font-size: 100%; border: none; outline: none; }
+        
+        /* Utilitas Kritis */
+        .cv-auto { content-visibility: auto; contain-intrinsic-size: 800px; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .font-bold { font-weight: 700; }
+        .font-black { font-weight: 900; }
+        .text-brand-red { color: var(--brand-red); }
+        .text-brand-blue { color: var(--brand-blue); }
+        .text-brand-green { color: var(--brand-green); }
+        .text-brand-yellow { color: var(--brand-yellow); }
+        .uppercase { text-transform: uppercase; }
+        .line-through { text-decoration: line-through; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .shadow { box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        
+        /* Komponen Notifikasi */
+        .app-notification {
+            position: fixed; bottom: 1rem; left: 1rem; z-index: 50;
+            background: white; border-left: 4px solid var(--brand-green);
+            border-radius: 0.5rem; border-top: 1px solid var(--gray-200); border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);
+            padding: 0.75rem; display: flex; align-items: center; gap: 0.75rem; max-width: 20rem;
+            transform: translateY(8rem); opacity: 0; transition: all 0.5s ease;
+        }
+        .app-notification.show { transform: translateY(0); opacity: 1; }
+        .notif-icon { background: #dcfce7; width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--brand-green); font-size: 1.25rem; flex-shrink: 0; }
+        
+        /* Layout Dasar */
+        .container { width: 100%; padding-left: 1rem; padding-right: 1rem; margin-left: auto; margin-right: auto; }
+        .max-w-3xl { max-width: 48rem; }
+        .max-w-5xl { max-width: 64rem; }
+        .max-w-6xl { max-width: 72rem; }
+
+        /* Komponen Tombol */
+        .btn-group { display: flex; flex-direction: column; gap: 1rem; justify-content: center; align-items: center; }
+        @media (min-width: 640px) { .btn-group { flex-direction: row; } }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 0.5rem; transition: background-color 0.3s; cursor: pointer; width: 100%; box-sizing: border-box; }
+        @media (min-width: 640px) { .btn { width: auto; } }
+        .btn-wa { background: var(--brand-green); color: white; padding: 1rem 2rem; font-size: 1.25rem; }
+        .btn-wa:hover { background: #16a34a; }
+        .btn-outline { background: white; color: var(--brand-green); border: 2px solid var(--brand-green); padding: 0.875rem 1.5rem; font-size: 1.125rem; }
+        .btn-outline:hover { background: #f0fdf4; }
+        .btn-submit { background: var(--brand-green); color: white; padding: 1.25rem; font-size: 1.25rem; width: 100%; display: block; border-bottom: 4px solid #15803d; }
+        .btn-submit:hover { background: #16a34a; }
+
+        /* Animasi Tombol WA (Hanya Desktop) */
+        @media (min-width: 768px) { .wa-pulse { animation: pulse-green 2s infinite; } }
         @keyframes pulse-green {
             0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
             100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
         }
+
+        /* Section 1: Hero */
+        .hero { background: white; padding: 1.5rem 0 3rem; border-bottom: 4px solid var(--brand-red); position: relative; }
+        .brand-text { color: var(--gray-500); letter-spacing: 0.1em; font-size: 0.875rem; margin-bottom: 1rem; }
+        .badge-urgent { background: var(--brand-red); color: white; padding: 0.375rem 1rem; border-radius: 0.25rem; display: inline-block; margin-bottom: 1.5rem; }
+        .hero-title { font-size: 1.875rem; line-height: 1.2; margin-bottom: 1rem; color: var(--brand-blue); }
+        @media (min-width: 768px) { .hero-title { font-size: 3rem; } }
+        .hero-desc { font-size: 1.125rem; color: var(--gray-600); font-weight: 500; margin-bottom: 2rem; line-height: 1.6; }
+        .badge-bonus { background: var(--brand-yellow); color: var(--gray-900); padding: 0.375rem 1rem; border-radius: 9999px; display: inline-block; margin-top: 0.75rem; border: 1px solid var(--gray-900); }
+        .cod-banner { background: var(--brand-yellow); border: 2px dashed var(--gray-800); padding: 1rem; border-radius: 0.5rem; margin-bottom: 2rem; display: inline-block; transform: rotate(1deg); }
+        .cod-banner h2 { font-size: 1.25rem; color: var(--gray-900); margin-bottom: 0.75rem; }
+        @media (min-width: 768px) { .cod-banner h2 { font-size: 1.5rem; } }
+        .cod-highlight { background: white; padding: 0.5rem 1rem; border-radius: 0.25rem; border: 1px solid var(--gray-300); display: inline-block; font-size: 1.125rem; }
+
+        /* Section 2: Isi Paket Grid */
+        .section-padding { padding: 4rem 0; }
+        .section-title { font-size: 1.5rem; color: var(--gray-800); margin-bottom: 0.5rem; border-bottom: 4px solid var(--brand-red); display: inline-block; padding-bottom: 0.5rem; }
+        @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+        .grid-5 { display: grid; grid-template-columns: 1fr; gap: 1rem; }
+        @media (min-width: 768px) { .grid-5 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; } }
+        @media (min-width: 1024px) { .grid-5 { grid-template-columns: repeat(5, 1fr); } }
+        
+        .product-card { background: white; border-radius: 0.5rem; padding: 1rem; border: 1px solid var(--gray-200); display: flex; flex-direction: column; align-items: center; }
+        .card-special { background: var(--brand-light); border: 2px solid var(--brand-yellow); position: relative; }
+        .badge-item { background: var(--brand-red); color: white; font-size: 0.875rem; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-bottom: 0.75rem; }
+        .badge-absolute { position: absolute; top: -0.75rem; right: -0.75rem; background: var(--brand-red); color: white; font-size: 0.75rem; padding: 0.25rem 0.5rem; border-radius: 0.25rem; transform: rotate(12deg); }
+        .img-wrap { width: 100%; aspect-ratio: 1/1; background: var(--gray-100); border-radius: 0.25rem; border: 1px solid var(--gray-200); overflow: hidden; margin-bottom: 1rem; }
+        .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .product-card h3 { font-size: 1.125rem; color: var(--gray-800); margin-bottom: 0.5rem; }
+        .product-card p.desc { font-size: 0.875rem; color: var(--gray-600); margin-bottom: 0.75rem; flex-grow: 1; }
+
+        /* Section 3: Keuntungan */
+        .bg-blue-section { background: var(--brand-blue); color: white; padding: 4rem 0; }
+        .grid-3 { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+        @media (min-width: 768px) { .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+        .benefit-card { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 0.5rem; border: 1px solid rgba(255, 255, 255, 0.2); }
+        .benefit-card i { color: var(--brand-yellow); font-size: 2.25rem; margin-bottom: 1rem; }
+        .benefit-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .benefit-card p { color: #e2e8f0; }
+
+        /* Section 4: Form Order */
+        .order-box { background: white; border-radius: 0.75rem; padding: 1.5rem; border-top: 8px solid var(--brand-red); }
+        @media (min-width: 768px) { .order-box { padding: 2.5rem; } }
+        .price-box { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 0.25rem; padding: 1rem; margin: 0 auto 1.5rem; max-width: 24rem; }
+        .price-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .price-promo { font-size: 1.5rem; color: var(--brand-red); }
+        .price-features { border-top: 1px solid var(--gray-300); padding-top: 0.75rem; font-size: 0.875rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        
+        .stock-bar { width: 100%; max-width: 24rem; margin: 0 auto 0.5rem; background: var(--gray-200); border-radius: 9999px; height: 1rem; overflow: hidden; }
+        .stock-fill { background: var(--brand-red); height: 100%; width: 85%; }
+
+        .form-box { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1rem; }
+        @media (min-width: 768px) { .form-box { padding: 1.5rem; } }
+        .form-title { font-size: 1.25rem; color: var(--brand-blue); border-bottom: 2px solid var(--gray-200); padding-bottom: 0.75rem; margin-bottom: 1.25rem; }
+        .form-group { margin-bottom: 1rem; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        label { display: block; font-size: 0.875rem; font-weight: 700; color: var(--gray-700); margin-bottom: 0.25rem; }
+        .input-field { width: 100%; border: 1px solid var(--gray-300); border-radius: 0.5rem; padding: 0.75rem; background: white; transition: border-color 0.2s; }
+        .input-field:focus { border-color: var(--brand-blue); }
+
+        /* Section 5: Review & Bonus */
+        .bg-gray-section { background: var(--gray-100); border-top: 1px solid var(--gray-200); padding: 4rem 0; }
+        .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+        @media (min-width: 1024px) { .grid-4 { grid-template-columns: repeat(4, 1fr); } }
+        .review-card { background: white; padding: 0.5rem; border-radius: 0.25rem; border: 1px solid var(--gray-200); }
+        .review-card img { border-radius: 0.25rem; width: 100%; background: var(--gray-200); }
+
+        .bg-bonus-section { background: var(--brand-red); border-top: 8px solid var(--brand-yellow); padding: 4rem 0; }
+        .bonus-box { background: white; border-radius: 1rem; padding: 2.5rem 1.25rem; border: 4px solid black; position: relative; max-width: 48rem; margin: 0 auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+        .badge-eitss { position: absolute; top: -1.25rem; left: 50%; transform: translateX(-50%); background: black; color: var(--brand-yellow); padding: 0.5rem 1.5rem; border-radius: 9999px; border: 4px solid var(--brand-yellow); width: max-content; font-size: 0.875rem; }
+        .timer-box { background: #fef2f2; border: 2px solid var(--brand-red); border-radius: 0.75rem; padding: 1rem; margin: 0 auto 1.5rem; max-width: 24rem; }
+        .timer-display { font-size: 2.25rem; line-height: 1; color: var(--brand-red); font-variant-numeric: tabular-nums; min-height: 2.25rem; }
+        @media (min-width: 768px) { .timer-display { font-size: 3rem; min-height: 3rem; } }
+
+        /* Footer */
+        .footer { background: var(--gray-800); color: var(--gray-400); text-align: center; padding: 2rem 0; font-size: 0.875rem; }
     </style>
 </head>
-<body class="bg-brand-light text-gray-800 antialiased overflow-x-hidden">
+<body>
 
-    <!-- NOTIFIKASI -->
-    <div id="fake-notification" class="fixed bottom-4 left-4 z-50 bg-white border-l-4 border-brand-green rounded shadow-lg p-3 flex items-center space-x-3 transition-all duration-500 transform translate-y-32 opacity-0 max-w-xs border border-gray-200" aria-live="polite">
-        <div class="bg-green-100 w-10 h-10 rounded-full flex items-center justify-center shrink-0 text-brand-green">
-            <i class="fas fa-check-circle text-xl" aria-hidden="true"></i>
-        </div>
+    <!-- FAKE NOTIFIKASI -->
+    <div id="fake-notification" class="app-notification" aria-live="polite">
+        <div class="notif-icon"><i class="fas fa-check-circle" aria-hidden="true"></i></div>
         <div>
-            <p class="text-sm font-bold text-gray-800 leading-tight"><span id="notify-name" class="text-brand-blue">Budi</span></p>
-            <p class="text-xs text-gray-600 mt-0.5">Baru saja memesan Paket (COD) ke <span id="notify-city" class="font-bold">Jakarta</span></p>
+            <p style="font-size: 0.875rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.125rem;">
+                <span id="notify-name" class="text-brand-blue">Budi</span>
+            </p>
+            <p style="font-size: 0.75rem; color: var(--gray-600);">Baru saja memesan Paket (COD) ke <span id="notify-city" class="font-bold">Jakarta</span></p>
         </div>
     </div>
 
-    <!-- 1. HERO SECTION (TIDAK ADA LAZY LOAD DI SINI) -->
-    <header class="bg-white relative pt-6 pb-12 px-4 border-b-4 border-brand-red shadow-sm">
-        <div class="max-w-3xl mx-auto text-center">
-            <p class="font-bold text-gray-500 tracking-widest text-sm mb-4">GLOMED & CO.</p>
-            <div class="inline-block bg-brand-red text-white font-bold px-4 py-1.5 rounded text-sm md:text-base mb-6">
-                <i class="fas fa-clock mr-1" aria-hidden="true"></i> PROMO BERAKHIR HARI INI
-            </div>
-            <h1 class="text-3xl md:text-5xl font-black text-brand-blue leading-tight mb-4">
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+        <div class="container max-w-3xl text-center">
+            <p class="font-bold brand-text">GLOMED & CO.</p>
+            <div class="badge-urgent"><i class="fas fa-clock mr-1" aria-hidden="true"></i> PROMO BERAKHIR HARI INI</div>
+            
+            <h1 class="hero-title font-black text-brand-blue">
                 PAKET KOMPLIT PRIA DEWASA<br>
                 <span class="text-brand-red">BAYAR RP 150.000, DAPAT 5 BARANG!</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 font-medium mb-8 max-w-2xl mx-auto leading-relaxed">
+            
+            <p class="hero-desc">
                 Tampil rapi, keren, dan elegan tanpa harus mahal. Kualitas premium standar distro, awet dipakai bertahun-tahun.<br>
-                <span class="inline-block mt-3 bg-brand-yellow text-gray-900 px-4 py-1.5 rounded-full font-bold text-sm md:text-base border border-gray-900 shadow-sm">
-                    🎁 PLUS GRATIS BONUS STICKER EKSKLUSIF!
-                </span>
+                <span class="badge-bonus">🎁 PLUS GRATIS BONUS STICKER EKSKLUSIF!</span>
             </p>
-            <div class="bg-brand-yellow border-2 border-dashed border-gray-800 p-4 rounded-lg mb-8 inline-block transform rotate-1">
-                <p class="text-xl md:text-2xl font-black text-gray-900 uppercase">
-                    <i class="fas fa-hand-holding-usd text-brand-green text-3xl mr-2 align-middle" aria-hidden="true"></i> AMAN! BISA BAYAR DI TEMPAT (COD)
-                </p>
-                <div class="mt-3 bg-white px-4 py-2 rounded border border-gray-300 shadow-sm inline-block">
-                    <p class="text-brand-red font-black text-lg md:text-xl uppercase">
-                        <i class="fas fa-truck-fast mr-2" aria-hidden="true"></i> + SUDAH TERMASUK FREE ONGKIR!
-                    </p>
+            
+            <div class="cod-banner font-black">
+                <h2><i class="fas fa-hand-holding-usd text-brand-green" aria-hidden="true"></i> AMAN! BISA BAYAR DI TEMPAT (COD)</h2>
+                <div class="cod-highlight text-brand-red">
+                    <i class="fas fa-truck-fast" aria-hidden="true"></i> + SUDAH TERMASUK FREE ONGKIR!
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 px-4">
-                <a href="#order-section" class="w-full sm:w-auto bg-brand-green text-white font-bold text-xl px-8 py-4 rounded-lg shadow-lg hover:bg-green-600 transition-colors flex items-center justify-center gap-2 wa-button">
-                    <i class="fab fa-whatsapp text-2xl" aria-hidden="true"></i> LIHAT ISI PAKETNYA DI SINI
+            
+            <div class="btn-group">
+                <a href="#order-section" class="btn btn-wa wa-pulse shadow-lg font-bold">
+                    <i class="fab fa-whatsapp" aria-hidden="true"></i> LIHAT ISI PAKETNYA DI SINI
                 </a>
-                <a href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto border-2 border-brand-green text-brand-green bg-white font-bold text-lg px-6 py-3.5 rounded-lg shadow-sm hover:bg-green-50 transition-colors flex items-center justify-center gap-2">
+                <a href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold shadow-sm">
                     <i class="fas fa-comments" aria-hidden="true"></i> Tanya Admin (WA)
                 </a>
             </div>
@@ -102,116 +226,125 @@
     </header>
 
     <!-- 2. SECTION ISI PAKET -->
-    <section class="py-16 px-4 max-w-6xl mx-auto cv-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-4xl font-black text-gray-800 mb-2 border-b-4 border-brand-red inline-block pb-2">APA SAJA YANG ANDA DAPATKAN?</h2>
-        </div>
-        <!-- Grid Items dengan explicit width/height & decoding async -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
-            <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-1</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
-                    <img src="images/kaos sablon.jpg" width="300" height="300" fetchpriority="high" decoding="async" alt="Kaos Pria" class="w-full h-full object-cover">
-                </div>
-                <h3 class="font-bold text-lg text-gray-800 mb-2">Kaos Sablon Premium</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun tebal, adem, menyerap keringat.</p>
+    <section class="section-padding cv-auto">
+        <div class="container max-w-6xl">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2 class="section-title font-black">APA SAJA YANG ANDA DAPATKAN?</h2>
+                <p style="color: var(--gray-600); font-size: 1.125rem; margin-top: 1rem;">Hanya dengan <strong class="text-brand-red">Rp 150.000</strong>, Anda langsung membawa pulang <strong>5 BARANG</strong> ini:</p>
             </div>
             
-            <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-2</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
-                    <img src="images/underwear.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Celana Dalam" class="w-full h-full object-cover">
+            <div class="grid-5 shadow-sm">
+                <!-- Item 1 (Prioritas LCP) -->
+                <div class="product-card shadow-sm">
+                    <div class="badge-item font-bold">BARANG KE-1</div>
+                    <div class="img-wrap"><img src="images/kaos sablon.jpg" width="300" height="300" fetchpriority="high" decoding="async" alt="Kaos Pria"></div>
+                    <h3 class="font-bold">Kaos Sablon Premium</h3>
+                    <p class="desc">Bahan katun tebal, adem, menyerap keringat.</p>
+                    <p style="font-size: 0.875rem; color: var(--gray-400);" class="line-through">Normal: Rp 100.000</p>
                 </div>
-                <h3 class="font-bold text-lg text-gray-800 mb-2">Celana Dalam Pria</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan katun spandek melar & nyaman.</p>
-            </div>
+                
+                <!-- Item 2-5 (Lazy Load) -->
+                <div class="product-card shadow-sm">
+                    <div class="badge-item font-bold">BARANG KE-2</div>
+                    <div class="img-wrap"><img src="images/underwear.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Celana Dalam"></div>
+                    <h3 class="font-bold">Celana Dalam Pria</h3>
+                    <p class="desc">Bahan katun spandek melar & nyaman.</p>
+                    <p style="font-size: 0.875rem; color: var(--gray-400);" class="line-through">Normal: Rp 30.000</p>
+                </div>
 
-            <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-3</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
-                    <img src="images/kacamata.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Kacamata" class="w-full h-full object-cover">
+                <div class="product-card shadow-sm">
+                    <div class="badge-item font-bold">BARANG KE-3</div>
+                    <div class="img-wrap"><img src="images/kacamata.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Kacamata"></div>
+                    <h3 class="font-bold">Kacamata Hitam Pria</h3>
+                    <p class="desc">Lensa anti-silau matahari dan frame kokoh.</p>
+                    <p style="font-size: 0.875rem; color: var(--gray-400);" class="line-through">Normal: Rp 35.000</p>
                 </div>
-                <h3 class="font-bold text-lg text-gray-800 mb-2">Kacamata Hitam Pria</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Lensa anti-silau matahari dan frame kokoh.</p>
-            </div>
 
-            <div class="bg-white rounded-lg p-4 shadow border border-gray-200 text-center flex flex-col">
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-4</div>
-                <div class="aspect-square bg-gray-100 rounded mb-4 overflow-hidden border border-gray-200">
-                    <img src="images/topi.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Topi Pria" class="w-full h-full object-cover">
+                <div class="product-card shadow-sm">
+                    <div class="badge-item font-bold">BARANG KE-4</div>
+                    <div class="img-wrap"><img src="images/topi.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Topi Pria"></div>
+                    <h3 class="font-bold">Topi Kanvas Awet</h3>
+                    <p class="desc">Bahan kanvas kuat untuk luar ruangan.</p>
+                    <p style="font-size: 0.875rem; color: var(--gray-400);" class="line-through">Normal: Rp 35.000</p>
                 </div>
-                <h3 class="font-bold text-lg text-gray-800 mb-2">Topi Kanvas Awet</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Bahan kanvas kuat untuk luar ruangan.</p>
-            </div>
 
-            <div class="bg-brand-light rounded-lg p-4 shadow-md border-2 border-brand-yellow text-center relative flex flex-col">
-                <div class="absolute -top-3 -right-3 bg-brand-red text-white font-black text-xs px-2 py-1 rounded shadow-md transform rotate-12">SPESIAL!</div>
-                <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">BARANG KE-5</div>
-                <div class="aspect-square bg-gray-200 rounded mb-4 overflow-hidden border border-gray-300">
-                    <img src="images/stiker.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Bonus Sticker" class="w-full h-full object-cover">
+                <div class="product-card card-special shadow-sm">
+                    <div class="badge-absolute font-black">SPESIAL!</div>
+                    <div class="badge-item font-bold">BARANG KE-5</div>
+                    <div class="img-wrap"><img src="images/stiker.jpg" width="300" height="300" loading="lazy" decoding="async" alt="Bonus Sticker"></div>
+                    <h3 class="font-bold">Sticker Pack Distro</h3>
+                    <p class="desc">Sticker vinyl keren anti-air.</p>
+                    <p class="font-bold text-brand-green uppercase" style="font-size: 0.875rem;"><i class="fas fa-gift" aria-hidden="true"></i> GRATIS (BONUS)</p>
                 </div>
-                <h3 class="font-bold text-lg text-gray-800 mb-2">Sticker Pack Distro</h3>
-                <p class="text-xs md:text-sm text-gray-600 mb-3 flex-grow">Sticker vinyl keren anti-air.</p>
-                <p class="text-xs md:text-sm text-brand-green font-bold uppercase"><i class="fas fa-gift mr-1" aria-hidden="true"></i> GRATIS (BONUS)</p>
             </div>
         </div>
     </section>
 
     <!-- 3. KEUNTUNGAN BELANJA -->
-    <section class="bg-brand-blue py-16 px-4 text-white cv-auto">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl md:text-3xl font-black text-center mb-10">MENGAPA ANDA HARUS PESAN SEKARANG?</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-shield-alt" aria-hidden="true"></i></div>
-                    <h3 class="font-bold text-xl mb-2">100% Bebas Penipuan</h3>
-                    <p class="text-gray-200">Tidak perlu transfer duluan. Bayar langsung ke kurir saat barang sudah di tangan Anda.</p>
+    <section class="bg-blue-section cv-auto">
+        <div class="container max-w-5xl">
+            <h2 class="text-center font-black" style="font-size: 1.5rem; margin-bottom: 2.5rem;">MENGAPA ANDA HARUS PESAN SEKARANG?</h2>
+            <div class="grid-3">
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                    <h3 class="font-bold">100% Bebas Penipuan</h3>
+                    <p>Tidak perlu transfer duluan. Bayar langsung ke kurir saat barang sudah di tangan Anda.</p>
                 </div>
-                <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-piggy-bank" aria-hidden="true"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Sangat Menghemat Uang</h3>
-                    <p class="text-gray-200">Beli di toko biasa habis Rp 200.000 lebih. Di sini, Anda cukup bayar Rp 150.000 saja.</p>
+                <div class="benefit-card">
+                    <i class="fas fa-piggy-bank" aria-hidden="true"></i>
+                    <h3 class="font-bold">Sangat Menghemat Uang</h3>
+                    <p>Beli di toko biasa habis Rp 200.000 lebih. Di sini, Anda cukup bayar Rp 150.000 saja.</p>
                 </div>
-                <div class="bg-white/10 p-6 rounded-lg border border-white/20">
-                    <div class="text-brand-yellow text-4xl mb-4"><i class="fas fa-truck" aria-hidden="true"></i></div>
-                    <h3 class="font-bold text-xl mb-2">Gratis Ongkos Kirim</h3>
-                    <p class="text-gray-200">Tidak perlu pusing memikirkan biaya ongkir. Kami yang tanggung biaya pengirimannya.</p>
+                <div class="benefit-card">
+                    <i class="fas fa-truck" aria-hidden="true"></i>
+                    <h3 class="font-bold">Gratis Ongkos Kirim</h3>
+                    <p>Tidak perlu pusing memikirkan biaya ongkir. Kami yang tanggung biaya pengirimannya.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 4. PRICE & ORDER FORM -->
-    <section class="py-16 px-4 cv-auto" id="order-section">
-        <div class="max-w-3xl mx-auto">
-            <div class="bg-white rounded-xl p-6 md:p-10 shadow-xl border-t-8 border-brand-red text-center">
-                <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-6">RINCIAN HARGA PROMO</h2>
-                <div class="bg-gray-50 border border-gray-200 rounded p-4 mb-6 inline-block w-full max-w-sm">
-                    <div class="flex justify-between items-center font-bold text-lg mb-4">
-                        <span class="text-gray-800">Harga Promo Hari Ini:</span>
-                        <span class="text-brand-red text-2xl">Rp 150.000</span>
+    <section class="section-padding cv-auto" id="order-section">
+        <div class="container max-w-3xl">
+            <div class="order-box shadow-xl">
+                <h2 class="font-black text-center" style="font-size: 1.5rem; margin-bottom: 1.5rem;">RINCIAN HARGA PROMO</h2>
+                
+                <div class="price-box text-left">
+                    <div class="price-row" style="color: var(--gray-500);">
+                        <span>Total Harga Normal:</span>
+                        <span class="line-through">Rp 200.000</span>
                     </div>
-                    <div class="border-t border-gray-300 pt-3 text-sm font-bold text-brand-green flex flex-col gap-2 text-left">
-                        <span><i class="fas fa-check-circle mr-2" aria-hidden="true"></i> BISA BAYAR DI TEMPAT (COD)</span>
-                        <span><i class="fas fa-check-circle mr-2" aria-hidden="true"></i> GRATIS ONGKOS KIRIM</span>
+                    <div class="price-row font-bold">
+                        <span>Harga Promo Hari Ini:</span>
+                        <span class="price-promo">Rp 150.000</span>
+                    </div>
+                    <div class="price-features text-brand-green font-bold">
+                        <span><i class="fas fa-check-circle mr-1" aria-hidden="true"></i> BISA BAYAR DI TEMPAT (COD)</span>
+                        <span><i class="fas fa-check-circle mr-1" aria-hidden="true"></i> GRATIS ONGKOS KIRIM</span>
                     </div>
                 </div>
 
-                <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 md:p-6 text-left mb-4 shadow-sm">
-                    <h3 class="font-bold text-brand-blue text-xl border-b-2 border-gray-200 pb-3 mb-5"><i class="fas fa-edit mr-2" aria-hidden="true"></i> ISI DATA PENGIRIMAN</h3>
+                <div style="margin-bottom: 2rem;">
+                    <p class="font-bold text-brand-red" style="margin-bottom: 0.5rem;"><i class="fas fa-exclamation-triangle" aria-hidden="true"></i> Stok Tersisa 17 Paket Lagi!</p>
+                    <div class="stock-bar"><div class="stock-fill"></div></div>
+                </div>
+
+                <div class="form-box text-left shadow-sm">
+                    <h3 class="form-title font-bold"><i class="fas fa-edit" aria-hidden="true"></i> ISI DATA PENGIRIMAN</h3>
                     <form id="orderForm">
-                        <div class="mb-4">
-                            <label for="nama" class="block text-sm font-bold text-gray-700 mb-1">Nama Lengkap *</label>
-                            <input type="text" id="nama" required placeholder="Contoh: Budi Santoso" class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap *</label>
+                            <input type="text" id="nama" class="input-field" required placeholder="Contoh: Budi Santoso">
                         </div>
-                        <div class="mb-4">
-                            <label for="whatsapp" class="block text-sm font-bold text-gray-700 mb-1">No. WhatsApp *</label>
-                            <input type="tel" id="whatsapp" required placeholder="Contoh: 08123456789" class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                        <div class="form-group">
+                            <label for="whatsapp">No. WhatsApp *</label>
+                            <input type="tel" id="whatsapp" class="input-field" required placeholder="Contoh: 08123456789">
                         </div>
-                        <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="grid-2">
                             <div>
-                                <label for="size" class="block text-sm font-bold text-gray-700 mb-1">Size Kaos *</label>
-                                <select id="size" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                                <label for="size">Size Kaos *</label>
+                                <select id="size" class="input-field" required>
                                     <option value="" disabled selected>Pilih</option>
                                     <option value="M">M</option>
                                     <option value="L">L</option>
@@ -219,26 +352,26 @@
                                 </select>
                             </div>
                             <div>
-                                <label for="jumlah" class="block text-sm font-bold text-gray-700 mb-1">Jumlah *</label>
-                                <select id="jumlah" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                                <label for="jumlah">Jumlah *</label>
+                                <select id="jumlah" class="input-field" required>
                                     <option value="1">1 Paket</option>
                                     <option value="2">2 Paket</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="pembayaran" class="block text-sm font-bold text-gray-700 mb-1">Pembayaran *</label>
-                            <select id="pembayaran" required class="w-full border border-gray-300 rounded-lg p-3 bg-white">
+                        <div class="form-group">
+                            <label for="pembayaran">Pembayaran *</label>
+                            <select id="pembayaran" class="input-field" required>
                                 <option value="COD">COD (Bayar di Tempat)</option>
                                 <option value="Transfer">Transfer Bank</option>
                             </select>
                         </div>
-                        <div class="mb-6">
-                            <label for="alamat" class="block text-sm font-bold text-gray-700 mb-1">Alamat Lengkap *</label>
-                            <textarea id="alamat" required rows="3" placeholder="Alamat lengkap..." class="w-full border border-gray-300 rounded-lg p-3 bg-white"></textarea>
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label for="alamat">Alamat Lengkap *</label>
+                            <textarea id="alamat" class="input-field" required rows="3" placeholder="Alamat lengkap..."></textarea>
                         </div>
-                        <button type="submit" class="block w-full bg-brand-green text-white font-bold text-xl py-5 rounded-lg shadow-lg hover:bg-green-600 transition-colors wa-button uppercase">
-                            <i class="fab fa-whatsapp text-3xl mr-2 align-middle" aria-hidden="true"></i> PESAN SEKARANG
+                        <button type="submit" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> PESAN SEKARANG
                         </button>
                     </form>
                 </div>
@@ -247,46 +380,48 @@
     </section>
 
     <!-- 5. TESTIMONI & BONUS SECTION -->
-    <section class="py-16 px-4 bg-gray-100 border-t border-gray-200 cv-auto">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-black text-gray-800 mb-10">KATA MEREKA YANG SUDAH BELI</h2>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-1.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 1" class="w-full rounded bg-gray-200"></div>
-                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-2.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 2" class="w-full rounded bg-gray-200"></div>
-                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-3.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 3" class="w-full rounded bg-gray-200"></div>
-                <div class="bg-white p-2 rounded shadow"><img src="images/ulasan-4.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 4" class="w-full rounded bg-gray-200"></div>
+    <section class="bg-gray-section cv-auto">
+        <div class="container max-w-5xl text-center">
+            <h2 class="font-black" style="font-size: 1.5rem; margin-bottom: 2.5rem;">KATA MEREKA YANG SUDAH BELI</h2>
+            <div class="grid-4">
+                <div class="review-card shadow-sm"><img src="images/ulasan-1.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 1"></div>
+                <div class="review-card shadow-sm"><img src="images/ulasan-2.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 2"></div>
+                <div class="review-card shadow-sm"><img src="images/ulasan-3.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 3"></div>
+                <div class="review-card shadow-sm"><img src="images/ulasan-4.jpeg" width="200" height="200" loading="lazy" decoding="async" alt="Testi 4"></div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-brand-red border-t-8 border-brand-yellow cv-auto">
-        <div class="max-w-3xl mx-auto text-center">
-            <div class="bg-white rounded-2xl px-5 py-10 shadow-2xl relative border-4 border-black">
-                <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-6 py-2 rounded-full uppercase border-4 border-brand-yellow w-max text-sm">EITSS, TUNGGU DULU! 🛑</div>
-                <h3 class="text-2xl md:text-4xl font-black text-brand-red uppercase mb-4 leading-tight">DAPATKAN TAMBAHAN BONUS KAOS KAKI! 🧦</h3>
-                <div class="aspect-video bg-gray-100 rounded-xl mb-6 overflow-hidden max-w-md mx-auto">
-                    <img src="images/kaoskaki.jpg" width="400" height="225" loading="lazy" decoding="async" alt="Bonus Kaos Kaki" class="w-full h-full object-cover">
+    <section class="bg-bonus-section cv-auto">
+        <div class="container max-w-3xl text-center">
+            <div class="bonus-box">
+                <div class="badge-eitss font-black">EITSS, TUNGGU DULU! 🛑</div>
+                <h3 class="font-black text-brand-red uppercase" style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.2;">DAPATKAN TAMBAHAN BONUS KAOS KAKI! 🧦</h3>
+                
+                <div style="aspect-ratio: 16/9; max-width: 28rem; margin: 0 auto 1.5rem; border-radius: 0.75rem; overflow: hidden; background: var(--gray-100);">
+                    <img src="images/kaoskaki.jpg" width="400" height="225" loading="lazy" decoding="async" alt="Bonus Kaos Kaki" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
-                <div class="bg-red-50 border-2 border-brand-red rounded-xl p-4 mb-6 max-w-sm mx-auto">
-                    <p class="text-brand-red font-black text-sm mb-1">Waktu Klaim Bonus Berakhir:</p>
-                    <div class="text-4xl font-black text-brand-red timer-display">00:15:00</div>
+                
+                <div class="timer-box">
+                    <p class="font-black text-brand-red" style="font-size: 0.875rem; margin-bottom: 0.25rem;">Waktu Klaim Bonus Berakhir:</p>
+                    <div class="timer-display font-black">00:15:00</div>
                 </div>
-                <a href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border-2 border-brand-green text-brand-green font-bold px-8 py-3 rounded-lg">
+                
+                <a href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold">
                     <i class="fas fa-comments" aria-hidden="true"></i> Tanya Admin (WA)
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-center py-8 text-gray-400 cv-auto">
-        <p class="text-sm">© 2026 Glomed & Co. Hak Cipta Dilindungi.</p>
+    <footer class="footer cv-auto">
+        <p>© 2026 Glomed & Co. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- Eksekusi JavaScript via requestIdleCallback agar tidak memblokir render UI -->
+    <!-- Javascript Ringan -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            
-            // 1. Form Handle
+            // Form Handle
             document.getElementById('orderForm').addEventListener('submit', (e) => {
                 e.preventDefault();
                 const v = id => document.getElementById(id).value;
@@ -294,9 +429,8 @@
                 window.open(`https://wa.me/628990765544?text=${encodeURIComponent(msg)}`, '_blank');
             });
 
-            // Jalankan sisa JS di background saat browser sedang nganggur (Idle)
+            // Eksekusi JS non-kritis di background
             const initHeavyJS = () => {
-                // 2. Timer
                 let time = 900;
                 const timers = document.querySelectorAll('.timer-display');
                 setInterval(() => {
@@ -306,15 +440,14 @@
                     timers.forEach(d => d.innerText = timeStr);
                 }, 1000);
 
-                // 3. Notifikasi
                 setTimeout(() => {
                     const names = ["Agus", "Rudi", "Budi", "Hendra"], cities = ["Jakarta", "Bandung", "Surabaya"];
                     setInterval(() => {
                         const notif = document.getElementById('fake-notification');
                         document.getElementById('notify-name').innerText = names[Math.floor(Math.random()*names.length)];
                         document.getElementById('notify-city').innerText = cities[Math.floor(Math.random()*cities.length)];
-                        notif.classList.toggle('translate-y-32'); notif.classList.toggle('opacity-0');
-                        setTimeout(() => notif.classList.add('translate-y-32', 'opacity-0'), 5000);
+                        notif.classList.toggle('show');
+                        setTimeout(() => notif.classList.remove('show'), 5000);
                     }, 15000);
                 }, 3000);
             };
