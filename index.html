@@ -29,6 +29,7 @@
                     },
                     boxShadow: {
                         'solid': '4px 4px 0px 0px rgba(0,0,0,0.1)',
+                        'solid-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
                     }
                 }
             }
@@ -171,7 +172,7 @@
                 <div class="absolute -top-3 -right-3 bg-brand-red text-white font-black text-xs px-2 py-1 rounded shadow-md transform rotate-12 animate-pulse">SPESIAL!</div>
                 
                 <div class="bg-brand-red text-white font-bold text-sm px-3 py-1 rounded-full inline-block mb-3 self-center">
-                    BARANG KE-5
+                    ITEM FREE
                 </div>
             
                 <div class="aspect-square bg-gray-200 rounded mb-4 overflow-hidden border border-gray-300 shrink-0 flex items-center justify-center relative">
@@ -449,6 +450,56 @@
         </div>
     </section>
 
+    <!-- 5.5 SECTION KEJUTAN BONUS -->
+    <section class="py-16 px-4 bg-brand-red border-t-8 border-brand-yellow relative">
+        <div class="max-w-3xl mx-auto text-center">
+            
+            <div class="bg-white rounded-2xl p-6 md:p-10 shadow-2xl relative transform md:hover:scale-[1.02] transition-transform duration-300 border-4 border-black">
+                
+                <!-- Badge Eitss -->
+                <div class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-brand-yellow font-black px-6 py-2 rounded-full uppercase tracking-widest border-4 border-brand-yellow whitespace-nowrap animate-bounce shadow-lg">
+                    EITSS, TUNGGU DULU! 🛑
+                </div>
+
+                <h2 class="text-xl md:text-2xl font-bold text-gray-800 mt-4 mb-2">
+                    Eitss... Buat Anda yang checkout <span class="text-brand-red font-black underline decoration-4 underline-offset-4">SEKARANG JUGA</span> sebelum waktu di bawah habis...
+                </h2>
+                
+                <h3 class="text-2xl md:text-4xl font-black text-brand-red uppercase mb-4 leading-tight">
+                    DAPATKAN TAMBAHAN BONUS KAOS KAKI KEREN! 🧦
+                </h3>
+
+                <!-- Bonus Image -->
+                <div class="aspect-video bg-gray-100 rounded-xl mb-6 overflow-hidden border-2 border-dashed border-gray-400 relative max-w-md mx-auto">
+                    <div class="absolute top-2 left-2 bg-brand-green text-white text-xs font-black px-3 py-1 rounded shadow z-10 uppercase tracking-wide">ITEM KE-6 (GRATIS)</div>
+                    <img src="images/kaoskaki.jpg" alt="Bonus Kaos Kaki" class="w-full h-full object-cover mix-blend-multiply" onerror="this.src='https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&q=80&w=600'">
+                </div>
+
+                <p class="text-base md:text-lg font-medium text-gray-700 mb-6">
+                    Bonus tambahan kaos kaki premium ini siap bikin penampilan kamu makin <em class="font-black text-brand-blue">WAH</em> dan maksimal dari ujung kepala sampai kaki! <br>
+                    <span class="inline-block mt-3 bg-brand-yellow px-3 py-1 rounded font-black text-gray-900 border border-gray-800 text-sm md:text-base">
+                        TOTAL DAPAT 5 BARANG CUMA 150 RIBU! MURAH KEBANGETAN!
+                    </span>
+                </p>
+
+                <!-- Fake Countdown Timer -->
+                <div class="bg-red-50 border-2 border-brand-red rounded-xl p-4 mb-6 max-w-sm mx-auto">
+                    <p class="text-brand-red font-black uppercase text-sm mb-1"><i class="fas fa-hourglass-half animate-pulse mr-1"></i> Waktu Klaim Bonus Berakhir:</p>
+                    <div class="text-4xl md:text-5xl font-black text-brand-red tracking-widest font-mono timer-display drop-shadow-sm">
+                        00:15:00
+                    </div>
+                </div>
+
+                <!-- CTWA Button -->
+                <a href="#order-section" class="block w-full max-w-sm mx-auto bg-brand-green text-white font-black text-xl md:text-2xl py-4 rounded-xl border-b-4 border-green-800 shadow-lg hover:bg-green-600 transition-colors uppercase wa-button">
+                    <i class="fab fa-whatsapp mr-2 text-2xl align-middle"></i> PESAN SEKARANG
+                </a>
+                <p class="text-xs text-gray-500 font-bold mt-3">*Klik tombol di atas untuk mengisi form order dan mengamankan bonus Anda</p>
+                
+            </div>
+        </div>
+    </section>
+
     <!-- 6. FOOTER -->
     <footer class="bg-gray-800 text-center py-8 px-4 text-gray-400">
         <div class="max-w-3xl mx-auto">
@@ -487,11 +538,11 @@
                 ? 'Mohon diproses untuk pengiriman sistem COD / Bayar di Tempat ya kak.' 
                 : 'Mohon info nomor rekening untuk pembayarannya ya kak.';
             
-            // Format Pesan
+            // Format Pesan (Updated with Bonus Kaos Kaki)
             const pesan = `Halo Admin, saya sudah isi form order Promo Bundling:\n\n` +
                           `*Nama:* ${nama}\n` +
                           `*No WA:* ${wa}\n` +
-                          `*Paket:* ${jumlah} item (+ Bonus Sticker)\n` +
+                          `*Paket:* ${jumlah} item (+ Bonus Sticker & Kaos Kaki)\n` +
                           `*Size Kaos:* ${size}\n` +
                           `*Pembayaran:* ${pembayaran}\n` +
                           `*Alamat:* ${alamat}\n\n` +
@@ -503,7 +554,7 @@
         });
 
         // Fake Order Notification (Local Indonesian Names for Trust)
-        const names = ["Agus", "Eko", "Rudi", "Hendra", "Budi", "Dwi", "Iwan", "Joko"];
+        const names = ["Agus", "Eko", "Rudi", "Hendra", "Budi", "Dwi", "Iwan", "Joko", "Fajar", "Rizky"];
         const cities = ["Jakarta", "Surabaya", "Bandung", "Medan", "Semarang", "Makassar", "Palembang", "Yogyakarta", "Malang", "Balikpapan"];
         
         const notifEl = document.getElementById('fake-notification');
@@ -530,8 +581,32 @@
             showNotification();
             setInterval(() => {
                 showNotification();
-            }, 10000 + Math.random() * 8000); // Less frequent, so it's not annoying
+            }, 12000 + Math.random() * 8000); // Less frequent, so it's not annoying
         }, 3000);
+
+        // Countdown Timer Logic (15 Minutes for urgency)
+        let timeInSeconds = 15 * 60; 
+        const timerDisplays = document.querySelectorAll('.timer-display');
+
+        function updateTimer() {
+            const h = Math.floor(timeInSeconds / 3600);
+            const m = Math.floor((timeInSeconds % 3600) / 60);
+            const s = timeInSeconds % 60;
+            
+            const displayStr = 
+                String(h).padStart(2, '0') + ':' + 
+                String(m).padStart(2, '0') + ':' + 
+                String(s).padStart(2, '0');
+
+            timerDisplays.forEach(display => {
+                display.innerText = displayStr;
+            });
+
+            if (timeInSeconds > 0) timeInSeconds--;
+            else timeInSeconds = 15 * 60; // Reset
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
     </script>
 </body>
 </html>
