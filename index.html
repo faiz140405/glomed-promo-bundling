@@ -236,7 +236,9 @@
                 <a href="#order-section" class="btn btn-wa wa-pulse shadow-lg font-bold">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i> LIHAT ISI PAKETNYA DI SINI
                 </a>
-                <a href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold shadow-sm">
+                
+                <!-- DITAMBAHKAN ID btn-hero-wa -->
+                <a id="btn-hero-wa" href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold shadow-sm">
                     <i class="fas fa-comments" aria-hidden="true"></i> Tanya Admin (WA)
                 </a>
             </div>
@@ -440,7 +442,8 @@
                     <div class="timer-display font-black">00:15:00</div>
                 </div>
                 
-                <a href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse" style="margin-bottom: 0.5rem;">
+                <!-- DITAMBAHKAN ID btn-bonus-wa UNTUK PELACAKAN MANUAL PIXEL -->
+                <a id="btn-bonus-wa" href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse" style="margin-bottom: 0.5rem;">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i> AMBIL SEMUA BONUSNYA SEKARANG
                 </a>
 
@@ -454,16 +457,43 @@
         <p>© 2026 Glomed & Co. Hak Cipta Dilindungi.</p>
     </footer>
 
-    <!-- Javascript Ringan -->
+    <!-- Javascript Ringan & PELACAKAN MANUAL FACEBOOK PIXEL -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Form Handle
+            
+            // --- BAGIAN INI YANG MEMPERBAIKI MASALAH PIXEL ANDA ---
+            
+            // 1. Catat Event "Contact" saat klik Tanya Admin
+            const btnHeroWA = document.getElementById('btn-hero-wa');
+            if(btnHeroWA) {
+                btnHeroWA.addEventListener('click', function() {
+                    if(typeof fbq !== 'undefined') fbq('track', 'Contact');
+                });
+            }
+
+            // 2. Catat Event "Lead" saat klik tombol Bonus (Yang error di gambar Anda)
+            const btnBonusWA = document.getElementById('btn-bonus-wa');
+            if(btnBonusWA) {
+                btnBonusWA.addEventListener('click', function() {
+                    if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+                });
+            }
+
+            // 3. Catat Event "Purchase" (Pembelian) saat Form di Submit
             document.getElementById('orderForm').addEventListener('submit', (e) => {
                 e.preventDefault();
+                
+                // Tembakkan Event Purchase ke Meta Pixel
+                if(typeof fbq !== 'undefined') {
+                    fbq('track', 'Purchase', {currency: 'IDR', value: 150000});
+                }
+
                 const v = id => document.getElementById(id).value;
                 const msg = `Halo Admin, order Paket Bundling:\nNama: ${v('nama')}\nWA: ${v('whatsapp')}\nSize: ${v('size')}\nJumlah: ${v('jumlah')}\nBayar: ${v('pembayaran')}\nAlamat: ${v('alamat')}`;
                 window.open(`https://wa.me/628990765544?text=${encodeURIComponent(msg)}`, '_blank');
             });
+
+            // --- END PERBAIKAN PIXEL ---
 
             // Eksekusi JS non-kritis di background
             const initHeavyJS = () => {
