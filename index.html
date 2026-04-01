@@ -237,8 +237,8 @@
                     <i class="fab fa-whatsapp" aria-hidden="true"></i> LIHAT ISI PAKETNYA DI SINI
                 </a>
                 
-                <!-- DITAMBAHKAN ID btn-hero-wa -->
-                <a id="btn-hero-wa" href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold shadow-sm">
+                <!-- DITAMBAHKAN ONCLICK UNTUK PIXEL -->
+                <a id="btn-hero-wa" href="https://wa.me/628990765544?text=Halo%20Admin..." target="_blank" rel="noopener noreferrer" class="btn btn-outline font-bold shadow-sm" onclick="if(typeof fbq !== 'undefined') { fbq('track', 'Contact'); }">
                     <i class="fas fa-comments" aria-hidden="true"></i> Tanya Admin (WA)
                 </a>
             </div>
@@ -442,8 +442,8 @@
                     <div class="timer-display font-black">00:15:00</div>
                 </div>
                 
-                <!-- DITAMBAHKAN ID btn-bonus-wa UNTUK PELACAKAN MANUAL PIXEL -->
-                <a id="btn-bonus-wa" href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse" style="margin-bottom: 0.5rem;">
+                <!-- DITAMBAHKAN ONCLICK UNTUK PELACAKAN MANUAL PIXEL -->
+                <a id="btn-bonus-wa" href="https://wa.me/628990765544?text=Saya%20mau%20bonus%20kaos%20kakinya" target="_blank" rel="noopener noreferrer" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse" style="margin-bottom: 0.5rem;" onclick="if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }">
                     <i class="fab fa-whatsapp" aria-hidden="true"></i> AMBIL SEMUA BONUSNYA SEKARANG
                 </a>
 
@@ -463,21 +463,7 @@
             
             // --- BAGIAN INI YANG MEMPERBAIKI MASALAH PIXEL ANDA ---
             
-            // 1. Catat Event "Contact" saat klik Tanya Admin
-            const btnHeroWA = document.getElementById('btn-hero-wa');
-            if(btnHeroWA) {
-                btnHeroWA.addEventListener('click', function() {
-                    if(typeof fbq !== 'undefined') fbq('track', 'Contact');
-                });
-            }
-
-            // 2. Catat Event "Lead" saat klik tombol Bonus (Yang error di gambar Anda)
-            const btnBonusWA = document.getElementById('btn-bonus-wa');
-            if(btnBonusWA) {
-                btnBonusWA.addEventListener('click', function() {
-                    if(typeof fbq !== 'undefined') fbq('track', 'Lead');
-                });
-            }
+            // Catatan: Pelacakan klik tombol WA sekarang menggunakan atribut onclick="fbq(...)" langsung di HTML tombolnya.
 
             // 3. Catat Event "Purchase" (Pembelian) saat Form di Submit
             document.getElementById('orderForm').addEventListener('submit', (e) => {
