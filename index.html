@@ -376,7 +376,7 @@
                             <label for="alamat">Alamat Lengkap *</label>
                             <textarea id="alamat" class="input-field" required rows="3" placeholder="Alamat lengkap..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse">
+                        <button type="button" id="btn-submit-order" class="btn btn-submit font-bold uppercase shadow-lg wa-pulse">
                             <i class="fab fa-whatsapp" aria-hidden="true"></i> PESAN SEKARANG
                         </button>
                     </form>
@@ -441,23 +441,35 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
-            // 1. PELACAKAN FORM: Hanya tembak 'Purchase' jika form lolos validasi & disubmit
-            const orderForm = document.getElementById('orderForm');
-            if (orderForm) {
-                orderForm.addEventListener('submit', (e) => {
-                    e.preventDefault(); // Mencegah reload halaman
+            // 1. PELACAKAN FORM: Validasi Manual Anti-Bocor
+            const btnSubmitOrder = document.getElementById('btn-submit-order');
+            if (btnSubmitOrder) {
+                btnSubmitOrder.addEventListener('click', (e) => {
+                    e.preventDefault();
                     
-                    // Tembakkan Event Purchase ke Meta Pixel
+                    // Ambil semua nilai dari form
+                    const v = id => document.getElementById(id).value;
+                    const nama = v('nama');
+                    const whatsapp = v('whatsapp');
+                    const size = v('size');
+                    const jumlah = v('jumlah');
+                    const pembayaran = v('pembayaran');
+                    const alamat = v('alamat');
+
+                    // CEK MANUAL: Apakah ada yang kosong?
+                    if (!nama || !whatsapp || !size || !jumlah || !pembayaran || !alamat) {
+                        alert("Mohon lengkapi semua data form (Nama, WA, Alamat, dll) sebelum memesan!");
+                        return; // PROSES BERHENTI DI SINI! PIXEL TIDAK AKAN DITEMBAK.
+                    }
+                    
+                    // JIKA SEMUA TERISI: Tembakkan Event Purchase ke Meta Pixel
                     if(typeof fbq === 'function') {
                         fbq('track', 'Purchase', {currency: 'IDR', value: 150000});
                     }
 
-                    // Ambil data form
-                    const v = id => document.getElementById(id).value;
-                    const msg = `Halo Admin, order Paket Bundling:\nNama: ${v('nama')}\nWA: ${v('whatsapp')}\nSize: ${v('size')}\nJumlah: ${v('jumlah')}\nBayar: ${v('pembayaran')}\nAlamat: ${v('alamat')}`;
-                    
-                    // Arahkan ke WhatsApp
-                    window.open(`https://wa.me/628990765544?text=${encodeURIComponent(msg)}`, '_blank');
+                    // Susun pesan dan arahkan ke WhatsApp
+                    const msg = `Halo Admin, order Paket Bundling:\nNama: ${nama}\nWA: ${whatsapp}\nSize: ${size}\nJumlah: ${jumlah}\nBayar: ${pembayaran}\nAlamat: ${alamat}`;
+                    window.open(`https://wa.me/6282183807442?text=${encodeURIComponent(msg)}`, '_blank');
                 });
             }
 
